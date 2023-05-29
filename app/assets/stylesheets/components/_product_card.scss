@@ -1,0 +1,34 @@
+.products-card {
+  background-color: #f9ede8; /* Couleur de fond irrégulière du parchemin */
+  padding: 20px; /* Marge intérieure du parchemin */
+  width: 500px; /* Largeur du parchemin */
+  position: relative; /* Permet de positionner les éléments enfants */
+}
+
+.rouleau {
+  position: absolute;
+  width: 100%;
+  height: 30px;
+  background-color: #ffe5d1; /* Couleur du rouleau */
+  z-index: 1; /* Permet d'empiler les rouleaux au-dessus du contenu */
+}
+
+.rouleau:first-child {
+  top: -15px; /* Position du premier rouleau au-dessus du contenu */
+  border-top-left-radius: 50px 30px; /* Bordure arrondie pour le coin supérieur gauche */
+  border-top-right-radius: 50px 30px; /* Bordure arrondie pour le coin supérieur droit */
+}
+
+.rouleau:last-child {
+  bottom: -15px; /* Position du dernier rouleau en dessous du contenu */
+  border-bottom-left-radius: 50px 30px; /* Bordure arrondie pour le coin inférieur gauche */
+  border-bottom-right-radius: 50px 30px; /* Bordure arrondie pour le coin inférieur droit */
+}
+
+.contenu {
+  background-color: #f9ede8; /* Couleur de fond irrégulière du contenu */
+  position: relative; /* Permet de positionner le contenu */
+  z-index: 2; /* Permet d'empiler le contenu au-dessus des rouleaux */
+}
+
+/* Ajoutez du style supplémentaire selon vos préférences */
