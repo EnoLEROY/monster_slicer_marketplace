@@ -1,0 +1,28 @@
+<!-- La navbar est déjà présente dans application -->
+<!-- On doit créer la barre de navigation latérale gauche -->
+
+<!-- Ensuite on présente une grille avec les produits -->
+<div class="products-cards">
+  <% @products.each do |product| %>
+    <div class="products-card">
+
+      <div class="contenu">
+        <!-- Contenu de la card : img, texte et prix -->
+        <div class="contenu-img">
+          <!-- image -->
+        </div>
+        <div class="contenu-body">
+          <div class="contenu-text">
+            <h3>Titre</h3>
+            <p>Ceci est un exemple de contenu à l'intérieur du parchemin.</p>
+          </div>
+          <!-- Il doit y avoir l'avatar du vendeur mais je ne sais plus où exactement -->
+          <div class="contenu-price">
+            <span>2€</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <% end %>
+</div>
