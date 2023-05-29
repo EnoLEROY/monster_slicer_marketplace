@@ -1,6 +1,6 @@
 <!-- La navbar est déjà présente dans application -->
 <!-- On doit créer la barre de navigation latérale gauche -->
-
+<!-- <%= render "sidebar" %> -->
 <!-- Ensuite on présente une grille avec les produits -->
 <div class="products-cards">
   <% @products.each do |product| %>
@@ -13,12 +13,13 @@
         </div>
         <div class="contenu-body">
           <div class="contenu-text">
-            <h3>Titre</h3>
-            <p>Ceci est un exemple de contenu à l'intérieur du parchemin.</p>
+            <h3><%= product.title %></h3>
+            <p><%= product.description %></p>
+            <p><%= product.category %></p>
           </div>
           <!-- Il doit y avoir l'avatar du vendeur mais je ne sais plus où exactement -->
           <div class="contenu-price">
-            <span>2€</span>
+            <span><%= product.price %>€</span>
           </div>
         </div>
       </div>
