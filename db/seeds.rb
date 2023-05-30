@@ -12,9 +12,9 @@ require 'open-uri'
 require 'date'
 
 
+Renting.destroy_all
 Product.destroy_all
 User.destroy_all
-Renting.destroy_all
 
 # Cloudinary::Uploader.upload('/Users/enoleroy/code/EnoLEROY/monster_slicer_marketplace/app/assets/images/weapons/swords/sword-2.png',folder: "monster_slicer/weapons", public_id: 'sword-2')
 
