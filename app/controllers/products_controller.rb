@@ -9,6 +9,13 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
   end
 
+  def new
+    @product = Product.new
+  end
+
+  def create
+  end
+
   private
 
   def set_products
