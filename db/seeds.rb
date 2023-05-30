@@ -8,10 +8,24 @@
 
 
 require 'faker'
-Products.destroy_all
+Product.destroy_all
+User.destroy_all
 
-10.times do
+user = User.new(first_name: "test", last_name: "test", email: "exemple@exemple.com", password: "testingtest1")
+user.save
+p user
+
+20.times do
   attrs = {
-    
+    title: Faker::Movies::HitchhikersGuideToTheGalaxy.planet,
+    price: (50..1000).to_a.sample,
+    description: Faker::TvShows::DrWho.quote,
+    category: ["weapon", "enchentment", "potion", "equipement"].sample,
+    user_id: user.id
   }
+  puts attrs
+  product = Product.new(attrs)
+  save = product.save
+  p product
+  puts save
 end
