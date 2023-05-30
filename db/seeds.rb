@@ -9,6 +9,7 @@
 
 require 'faker'
 require 'open-uri'
+require 'date'
 
 
 Product.destroy_all
@@ -39,7 +40,7 @@ end
 
 
 # Products ----------------------------------
-
+products = []
 # # Swords ----------------------------------
 files = []
 for i in 1..5
@@ -58,6 +59,7 @@ product = Product.new(attrs)
 product.product_image.attach(io: files[0], filename: 'sword-1.png', content_type: "image/png")
 product.save
 p product
+products << product
 
 attrs = {
   title: Faker::Games::Witcher.sign,
@@ -70,6 +72,7 @@ product = Product.new(attrs)
 product.product_image.attach(io: files[1], filename: 'sword-2.png', content_type: "image/png")
 product.save
 p product
+products << product
 
 attrs = {
   title: Faker::Games::Witcher.sign,
@@ -82,11 +85,12 @@ product = Product.new(attrs)
 product.product_image.attach(io: files[2], filename: 'sword-3.png', content_type: "image/png")
 product.save
 p product
+products << product
 
 attrs = {
   title: Faker::Games::Witcher.sign,
   price: 200,
-  description: "this blazing sword will pierce easily through your enemy's armor. Its blade is always blazing red as it was forged out of the fire of Mount Doom, and it is therefore filled with power, treachery and deceipt. However, with the right master, it can become an extremely deadly weapon. Use wisely and with caution.",
+  description: "This blazing sword will pierce easily through your enemy's armor. Its blade is always blazing red as it was forged out of the fire of Mount Doom, and it is therefore filled with power, treachery and deceipt. However, with the right master, it can become an extremely deadly weapon. Use wisely and with caution.",
   category: "weapon",
   user_id: users.sample.id
 }
@@ -94,6 +98,7 @@ product = Product.new(attrs)
 product.product_image.attach(io: files[3], filename: 'sword-4.png', content_type: "image/png")
 product.save
 p product
+products << product
 
 attrs = {
   title: Faker::Games::Witcher.sign,
@@ -106,3 +111,25 @@ product = Product.new(attrs)
 product.product_image.attach(io: files[4], filename: 'sword-5.png', content_type: "image/png")
 product.save
 p product
+products << product
+
+
+# Rentings ----------------------------------
+
+rentings = []
+
+10.times do
+  start = DateTime.now - (10..100).to_a.sample.days
+  fin = start + (1..3).to_a.sample.days
+  attrs = {
+    start_date: start,
+    end_date: fin,
+    product_id: products.sample.id,
+    user_id: users.sample.id
+  }
+
+  renting = Renting.new(attrs)
+  renting.save
+  p renting
+  rentings << renting
+end

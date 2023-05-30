@@ -20,3 +20,11 @@
     </div>
   </div>
 </div>
+<div class = "container-booking">
+  <%= simple_form_for([@product, @renting]) do |f| %>
+  <%= f.input :start_date,as: :string, input_html: { data: { controller: "datepicker" } } %>
+  <%= f.input :end_date, as: :string, input_html: { data: { controller: "datepicker" } } %>
+  <%= f.label :total_price %>
+  <%= f.submit %>
+  <% end %>
+</div>
