@@ -7,6 +7,7 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+    @renting = Renting.new
   end
 
   private
@@ -18,5 +19,4 @@ class ProductsController < ApplicationController
   def params_product
     params.require(:product).permit(:title, :description, :price, :category)
   end
-
 end
