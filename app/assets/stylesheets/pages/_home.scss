@@ -1,18 +1,21 @@
 // Specific CSS for your home-page
 body {
   font-family: 'VT323', monospace;
-
 }
+
 h1, h2 {
   font-family: 'VT323', monospace;
   text-align: center;
-  color: white;
 }
+
+.home-page{ h1, h2 {
+  color: white;}
+}
+
 .banner {
   width: 100%;
-  background-image: 'app/assets/images/background-image.jpg';
-  background-size: cover;
-  height: 500px;
+  background-size: 100%;
+  height: 90vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -29,8 +32,4 @@ h1, h2 {
   margin: 20px auto;
   justify-content: space-between;
   align-items: center;
-}
-
-.button-gold {
-  background-image: url('app/assets/images/gold-button-medium.png');
 }
