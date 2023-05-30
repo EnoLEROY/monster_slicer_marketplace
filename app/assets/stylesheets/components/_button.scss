@@ -10,9 +10,16 @@
   align-items: flex-start;
   font-size: 25px;
   transition: 0.3s ease;
+  p {
+    text-decoration: none;
+  }
 }
 
 .button-gold:hover {
   opacity: 0.7;
   color: black;
+}
+
+a {
+  text-decoration: none;
 }
