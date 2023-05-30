@@ -10,6 +10,13 @@ class ProductsController < ApplicationController
     @renting = Renting.new
   end
 
+  def new
+    @product = Product.new
+  end
+
+  def create
+  end
+
   private
 
   def set_products
