@@ -4,7 +4,7 @@
 <!-- <%= render "sidebar" %> -->
 
 <!-- Ensuite on présente une grille avec les produits -->
-<div class="products">
+<div class="products" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('<%= cl_image_path "monster_slicer/background-wall"%>')">
   <div class="products-title">
     <h1>Bienvenue dans la boutique !</h1>
   </div>
@@ -36,7 +36,7 @@
           <div class="contenu">
             <!-- Contenu de la card : img, texte et prix -->
             <div class="contenu-img">
-              <!-- image -->
+              <%= cl_image_tag product.product_image.key %>
             </div>
             <div class="contenu-body">
               <div class="contenu-text">
@@ -44,13 +44,13 @@
                 <p><%= product.description %></p>
                 <p><i class="fa-regular fa-circle-question"></i> <%= product.category.capitalize %></p>
               </div>
-              <!-- Il doit y avoir l'avatar du vendeur mais je ne sais plus où exactement -->
               <div class="contenu-price">
                 <span class="price"><%= product.price %>€</span>
-                <img src="/../../assets/images/logo.png" alt="image">
+                <%= cl_image_tag product.user.user_avatar.key %>
               </div>
             </div>
           </div>
+          <%= link_to '', product_path(product), class: 'card-link' %>
         </div>
       <% end %>
     </div>
