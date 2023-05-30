@@ -22,7 +22,9 @@ Renting.destroy_all
 users = []
 i = 1
 10.times do
-  file = URI.open("https://res.cloudinary.com/demv6536i/image/upload/v1685452456/monster_slicer/avatar-icones/avatar-icone-#{i}.jpg")
+  url = "https://res.cloudinary.com/demv6536i/image/upload/v1685452456/monster_slicer/avatar-icones/avatar-icone-#{i}.jpg"
+  p url
+  file = URI.open(url)
   name = (Faker::Games::Witcher.character).split(' ')
   user = User.new(
     first_name: name.first,
@@ -30,8 +32,8 @@ i = 1
     email: "exemple#{i}@exemple.com",
     password: "testingtest1"
   )
-  user.user_avatar.attach(io: file, filename: "avatar-icone-#{i}.png", content_type: "image/png")
-  user.save
+  user.user_avatar.attach(io: file, filename: "avatar-icone-#{i}.jpg", content_type: "image/jpg")
+  user.save!
   p user
   users << user
   i += 1

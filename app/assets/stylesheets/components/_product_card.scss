@@ -20,10 +20,16 @@
 }
 
 .contenu {
-  background-color: #F1E8C7; /* Couleur de fond irrégulière du contenu */
+  background-color: #F1E8C7;
   position: relative; /* Permet de positionner le contenu */
-  z-index: 2; /* Permet d'empiler le contenu au-dessus des rouleaux */
   font-family: 'VT323', monospace;
+  padding-top: 10px;
+}
+
+.contenu-img {
+  background-color: #927E6A;
+  margin-inline: 10px;
+  text-align: center;
 }
 
 .contenu-body {
@@ -31,6 +37,7 @@
   justify-content: space-between;
   align-items: flex-end;
   position: relative;
+  margin-left: 10px;
 }
 
 .contenu-text {
@@ -56,3 +63,12 @@
   top: -20px;
   width: 40px;
 }
+
+.card-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  }

@@ -1,6 +1,7 @@
 // la view correspondante utilise les scss components/sidebar et components/product_card
 .products {
-  background-color: black;
+  min-height: 100vh;
+  position: sticky;
 }
 
 .products-title h1 {
