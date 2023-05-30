@@ -7,5 +7,7 @@ class User < ApplicationRecord
   has_many :products
   has_many :rentings
 
+  has_one_attached :user_avatar
+
   validates :first_name, :last_name, presence: true
 end

@@ -2,29 +2,57 @@
 <!-- Donc pas besoin de la rajouter ici -->
 <!-- On doit créer la barre de navigation latérale gauche -->
 <!-- <%= render "sidebar" %> -->
-<!-- Ensuite on présente une grille avec les produits -->
-<div class="products-cards">
-  <% @products.each do |product| %>
-    <div class="products-card">
 
-      <div class="contenu">
-        <!-- Contenu de la card : img, texte et prix -->
-        <div class="contenu-img">
-          <!-- image -->
-        </div>
-        <div class="contenu-body">
-          <div class="contenu-text">
-            <h3><%= product.title %></h3>
-            <p><%= product.description %></p>
-            <p><%= product.category %></p>
-          </div>
-          <!-- Il doit y avoir l'avatar du vendeur mais je ne sais plus où exactement -->
-          <div class="contenu-price">
-            <span><%= product.price %>€</span>
-          </div>
-        </div>
+<!-- Ensuite on présente une grille avec les produits -->
+<div class="products">
+  <div class="products-title">
+    <h1>Bienvenue dans la boutique !</h1>
+  </div>
+
+  <div class="products-body">
+    <div class="navigation-sidebar">
+      <div class="category-selector">
+        <h4>Category</h4>
+          <select name="Category" id="products">
+            <option value="volvo">Weapon</option>
+            <option value="saab">Armor</option>
+            <option value="mercedes">Potions</option>
+            <option value="audi">Enchantments</option>
+          </select>
+      </div>
+      <div class="date-selector">
+        <h4>Rental dates</h4>
+        <p>En vrai on utilisera ce qu'on a vu mardi matin</p>
+      </div>
+      <div class="validate-button button-gold">
+        <h2>Filter</h2>
       </div>
     </div>
 
-  <% end %>
+    <div class="products-cards">
+      <% @products.each do |product| %>
+        <div class="products-card">
+
+          <div class="contenu">
+            <!-- Contenu de la card : img, texte et prix -->
+            <div class="contenu-img">
+              <!-- image -->
+            </div>
+            <div class="contenu-body">
+              <div class="contenu-text">
+                <h3><%= product.title %></h3>
+                <p><%= product.description %></p>
+                <p><i class="fa-regular fa-circle-question"></i> <%= product.category.capitalize %></p>
+              </div>
+              <!-- Il doit y avoir l'avatar du vendeur mais je ne sais plus où exactement -->
+              <div class="contenu-price">
+                <span class="price"><%= product.price %>€</span>
+                <img src="/../../assets/images/logo.png" alt="image">
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
