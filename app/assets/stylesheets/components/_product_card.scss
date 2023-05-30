@@ -1,34 +1,58 @@
+// Le css de la page globale est dans pages/_products_index
+
+.products-cards {
+  background-color: #f9ffdc;
+  padding: 10px;
+  width: 84%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  border-radius: 5px;
+}
+
 .products-card {
-  background-color: #f9ede8; /* Couleur de fond irrégulière du parchemin */
-  padding: 20px; /* Marge intérieure du parchemin */
-  width: 500px; /* Largeur du parchemin */
+  background-color: #927E6A;
+  padding: 10px;
+  margin: 10px;
+  width: 350px;
   position: relative; /* Permet de positionner les éléments enfants */
-}
-
-.rouleau {
-  position: absolute;
-  width: 100%;
-  height: 30px;
-  background-color: #ffe5d1; /* Couleur du rouleau */
-  z-index: 1; /* Permet d'empiler les rouleaux au-dessus du contenu */
-}
-
-.rouleau:first-child {
-  top: -15px; /* Position du premier rouleau au-dessus du contenu */
-  border-top-left-radius: 50px 30px; /* Bordure arrondie pour le coin supérieur gauche */
-  border-top-right-radius: 50px 30px; /* Bordure arrondie pour le coin supérieur droit */
-}
-
-.rouleau:last-child {
-  bottom: -15px; /* Position du dernier rouleau en dessous du contenu */
-  border-bottom-left-radius: 50px 30px; /* Bordure arrondie pour le coin inférieur gauche */
-  border-bottom-right-radius: 50px 30px; /* Bordure arrondie pour le coin inférieur droit */
+  border: 1px solid;
 }
 
 .contenu {
-  background-color: #f9ede8; /* Couleur de fond irrégulière du contenu */
+  background-color: #F1E8C7; /* Couleur de fond irrégulière du contenu */
   position: relative; /* Permet de positionner le contenu */
   z-index: 2; /* Permet d'empiler le contenu au-dessus des rouleaux */
+  font-family: 'VT323', monospace;
 }
 
-/* Ajoutez du style supplémentaire selon vos préférences */
+.contenu-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.contenu-text {
+  width: 75%;
+}
+
+.contenu-text p{
+  overflow: hidden;
+  white-space: nowrap; /* Don't forget this one */
+  text-overflow: ellipsis;
+}
+
+.contenu-price {
+  width: 20%;
+  .price {
+    font-size: 30px;
+  }
+}
+
+.contenu-price img {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
+}
