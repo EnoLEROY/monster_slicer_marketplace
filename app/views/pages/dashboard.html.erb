@@ -1,0 +1,8 @@
+<h1>Welcome! <%= current_user.first_name %></h1>
+<h2>Rentings:</h2>
+<% @rentings.each do |renting| %>
+  <div class = "card-renting">
+      <h3><%= renting.start_date.strftime("%a, %d of %B") %> to <%= renting.end_date.strftime("%a, %d of %B") %></h3>
+      <h3> status: <%= renting.status %></h3>
+  </div>
+<% end %>
