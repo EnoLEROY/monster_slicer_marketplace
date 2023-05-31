@@ -1,12 +1,12 @@
-<div class="fill-container" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('<%= cl_image_path "monster_slicer/background-wall"%>')">
+<div class="fill-container" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url('<%= asset_url 'background-wall' %>')">
   <div class = "container-seller">
     <h2><%= @product.user.first_name %> <%= @product.user.last_name %></h2>
     <h2></h2>
   </div>
-  <div class = "container-product"  style="background-image: url('<%= cl_image_path "monster_slicer/parchement"%>')">
+  <div class = "container-product"  style="background-image: url('<%= asset_url "parchement" %>')">
     <div class = "card-info">
       <div class = "image-and-details">
-        <div class = "temp-image"  style="background-image: url('<%= cl_image_path "monster_slicer/weapons/sword-3"%>')">
+        <div class = "temp-image"  style="background-image: url('<%= cl_image_path @product.product_image.key %>')">
         </div>
         <div class = "title-stats">
           <h2><%= @product.title %></h1>

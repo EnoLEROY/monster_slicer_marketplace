@@ -1,18 +1,17 @@
 <div class="home-page">
-  <div class = "banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path 'monster_slicer/home_background_image', crop: :fill %>')"
+  <div class = "banner" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url('<%= asset_url 'home_background_image' %>')"
   >
     <div class="container">
-      <h1 data-controller="typed" data-typed-sentences-value="<%=["Welcome travelers to the Monster Slicer™ marketplace"].to_json %>">
-
+      <h1 data-controller="typed">
       </h1>
       <div class = "buttons-container">
         <%= link_to products_path do  %>
-          <div class = "button-gold" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)),url('<%= cl_image_path "monster_slicer/gold-button-new"%>')">
+          <div class = "button-gold" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)),url('<%= asset_url 'gold-button-new' %>')">
             <p>Rent</p>
           </div>
         <% end %>
         <%= link_to products_path do  %>
-          <div class = "button-gold" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)),url('<%= cl_image_path "monster_slicer/gold-button-new"%>')">
+          <div class = "button-gold" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)),url('<%= asset_url 'gold-button-new' %>')">
             <p>Lend</p>
           </div>
         <% end %>
