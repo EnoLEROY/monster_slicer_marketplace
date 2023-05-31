@@ -10,7 +10,7 @@ export default class extends Controller {
     new Typed(this.element, {
 
       strings: ['Welcome travelers ^1000 to the </br> Monster Slicer™ marketplace'],
-      typeSpeed: 40,
+      typeSpeed: 30,
       showCursor:false,
       smartBackspace: true
     });

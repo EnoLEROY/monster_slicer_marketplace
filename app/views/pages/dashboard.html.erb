@@ -4,5 +4,6 @@
   <div class = "card-renting">
       <h3><%= renting.start_date.strftime("%a, %d of %B") %> to <%= renting.end_date.strftime("%a, %d of %B") %></h3>
       <h3> status: <%= renting.status %></h3>
+      <%= link_to "delete", renting_path(renting), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
   </div>
 <% end %>
