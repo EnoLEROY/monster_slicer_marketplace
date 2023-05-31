@@ -2,7 +2,7 @@
     <%= f.input :title, placeholder: 'Title' %>
     <%= f.input :price, placeholder: 'Price per days' %>
     <%= f.input :description, as: :text, placeholder: "Describe your item" %>
-    <%= f.input :category, collection: Product::CATEGORIES %>
+    <%= f.input :category, collection: Product::CATEGORIES, placeholder: "Category" %>
     <%= f.input :product_image, as: :file %>
     <%= f.submit class:"btn btn-outline-light" %>
   <% end %>

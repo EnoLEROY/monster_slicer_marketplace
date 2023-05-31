@@ -15,6 +15,13 @@ class ProductsController < ApplicationController
   end
 
   def create
+    @product = Product.new(params_product)
+    @product.user = current_user
+    if @product.save
+      redirect_to product_path(@product)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   private
@@ -24,6 +31,6 @@ class ProductsController < ApplicationController
   end
 
   def params_product
-    params.require(:product).permit(:title, :description, :price, :category)
+    params.require(:product).permit(:title, :description, :price, :category, :product_image)
   end
 end
