@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   root to: "pages#home"
   get "/dashboard", to: "pages#dashboard"
   resources :products, only: [:index, :show, :new, :create] do
+    member do
+      get :details
+    end
     resources :rentings, only: [:new, :create]
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
