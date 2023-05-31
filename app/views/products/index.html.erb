@@ -1,10 +1,10 @@
 <!-- La navbar est déjà présente dans application -->
 <!-- Donc pas besoin de la rajouter ici -->
 <!-- On doit créer la barre de navigation latérale gauche -->
-<!-- <%= render "sidebar" %> -->
 
 <!-- Ensuite on présente une grille avec les produits -->
-<div class="products" style="background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('<%= asset_url 'background-wall' %>')">
+<div class="products" style="background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('<%= asset_url 'background-wall.jpg' %>')">
+
   <div class="products-title">
     <h1>Bienvenue dans la boutique !</h1>
   </div>
@@ -24,8 +24,8 @@
         <h4>Rental dates</h4>
         <p>En vrai on utilisera ce qu'on a vu mardi matin</p>
       </div>
-      <div class="validate-button button-gold">
-        <h2>Filter</h2>
+      <div class="button-gold" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)),url('<%= asset_url 'gold-button-new.png' %>')">
+        <p>Filter</p>
       </div>
     </div>
 
@@ -38,13 +38,17 @@
               <%= cl_image_tag product.product_image.key %>
             </div>
             <div class="contenu-body">
-              <div class="contenu-text">
-                <h3><%= product.title %></h3>
-                <p><%= product.description %></p>
-                <p><i class="fa-regular fa-circle-question"></i> <%= product.category.capitalize %></p>
+              <div class="contenu-description">
+                <div class="contenu-text">
+                  <h3><%= product.title %></h3>
+                  <p><%= product.description %></p>
+                </div>
+                <div class="contenu-category">
+                  <p><i class="fa-regular fa-circle-question"></i> <%= product.category.capitalize %></p>
+                </div>
               </div>
               <div class="contenu-price">
-                <span class="price"><%= product.price %>€</span>
+                <span class="price"><%= product.price %>g</span>
                 <%= cl_image_tag product.user.user_avatar.key %>
               </div>
             </div>

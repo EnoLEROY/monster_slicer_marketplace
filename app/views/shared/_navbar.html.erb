@@ -31,11 +31,11 @@
             </div>
           </li>
         <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link", id:'login' %>
-          </li>
           <li class="nav-item active">
             <%= link_to "Shop", products_path, class: "nav-link-custom" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Login", new_user_session_path, class: "nav-link-custom", id:'login' %>
           </li>
         <% end %>
       </ul>
