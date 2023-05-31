@@ -1,0 +1,15 @@
+.container {
+  width: 600px;
+  margin: 0 auto;
+}
+
+.container-rentings {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+}
+
+.container-large {
+  width: 90%;
+  margin: 0 auto;
+}

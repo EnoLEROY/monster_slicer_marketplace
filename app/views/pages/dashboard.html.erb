@@ -1,9 +1,20 @@
-<h1>Welcome! <%= current_user.first_name %></h1>
-<h2>Rentings:</h2>
-<% @rentings.each do |renting| %>
-  <div class = "card-renting">
-      <h3><%= renting.start_date.strftime("%a, %d of %B") %> to <%= renting.end_date.strftime("%a, %d of %B") %></h3>
-      <h3> status: <%= renting.status %></h3>
-      <%= link_to "delete", renting_path(renting), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+<div class = "container-background" style="background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('<%= asset_url 'background-wall.jpg' %>')">
+  <h1>Welcome! <%= current_user.first_name %></h1>
+  <h2>Rentings:</h2>
+  <div class = "container-large" >
+    <div class = "container-rentings">
+      <% @rentings.each do |renting| %>
+        <div class = "card-renting">
+            <div>
+              <%= cl_image_tag renting.product.product_image.key %>
+            </div>
+            <h5><%= renting.start_date.strftime("%a, %d of %B") %> to <%= renting.end_date.strftime("%a, %d of %B") %></h5>
+            <h3> status: <%= renting.status %></h3>
+            <%= link_to renting_path(renting), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, style: "text-decoration: none; color: black;" do%>
+              <i class="fa-solid fa-trash"></i>
+            <% end %>
+        </div>
+      <% end %>
+    </div>
   </div>
-<% end %>
+</div>
