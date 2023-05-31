@@ -17,6 +17,7 @@
   width: 350px;
   position: relative; /* Permet de positionner les éléments enfants */
   border: 1px solid;
+  height: auto;
 }
 
 .contenu {
@@ -24,6 +25,9 @@
   position: relative; /* Permet de positionner le contenu */
   font-family: 'VT323', monospace;
   padding-top: 10px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .contenu-img {
@@ -38,10 +42,15 @@
   align-items: flex-end;
   position: relative;
   margin-left: 10px;
+  height: 100%;
 }
 
-.contenu-text {
+.contenu-description {
   width: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
 }
 
 .contenu-text p{
@@ -52,8 +61,10 @@
 
 .contenu-price {
   width: 20%;
+  text-align: right;
+  padding: 10px;
   .price {
-    font-size: 30px;
+    font-size: 25px;
   }
 }
 
