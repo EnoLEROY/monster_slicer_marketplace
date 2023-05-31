@@ -127,7 +127,7 @@ rentings = []
     start_date: start,
     end_date: fin,
     product_id: products.sample.id,
-    user_id: users.sample.id
+    user_id: users.first.id
   }
 
   renting = Renting.new(attrs)
