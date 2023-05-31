@@ -4,9 +4,12 @@
   h1, h2 {
   color: white;
   text-align: center;
-}
+  }
   background-color: black;
-
+  h1 {
+    height: 300px;
+    font-size: 90px;
+  }
 }
 
 .banner {
@@ -19,7 +22,8 @@
 }
 
 .container {
-  width: 600px;
+  text-align: center;
+  width: 1200px;
   margin: 0 auto;
 }
 
