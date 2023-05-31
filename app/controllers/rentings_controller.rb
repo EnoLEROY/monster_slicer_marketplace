@@ -9,10 +9,15 @@ class RentingsController < ApplicationController
     @product = Product.find(params[:product_id])
     @renting.product = @product
     if @renting.save
-      redirect_to products_path
+      redirect_to dashboard_path
     else
       render 'products/show', status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @renting = Renting.find(params[:id])
+    @renting.destroy
   end
 
   private
