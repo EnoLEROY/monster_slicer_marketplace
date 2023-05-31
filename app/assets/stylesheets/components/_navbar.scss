@@ -9,7 +9,7 @@
 }
 
 .navbar-lewagon .navbar-brand{
-  background-color: #fcf404;
+  background-color: #207ba1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -21,8 +21,9 @@
   border: white 1px solid;
   img {
   width: 40px;
-  object-fit: contain;
+  object-fit: cover;
   }
+  overflow: hidden;
 }
 
 .navbar-lewagon a{

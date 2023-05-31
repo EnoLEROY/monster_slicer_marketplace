@@ -21,6 +21,7 @@
 
 .nav-link-custom {
   display: block;
+  color: white;
   padding: 10px 10px;
   text-decoration: none;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
@@ -31,9 +32,4 @@
   color: rgb(132, 132, 132);
 }
 
-#logo {
-  width: 100px;
-  
-  background-image: url("app/assets/images/monster_slicer_logo.png");
-  background-size: contain;
-}
+
