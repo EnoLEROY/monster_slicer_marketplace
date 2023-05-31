@@ -1,10 +1,12 @@
-<div class="fill-container" style="background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('<%= asset_url 'background-wall.jpg' %>')">
+<div class="fill-container" style="background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('<%= asset_url 'background-wall.jpg' %>'); min-height: 100vh;">
 
-  <div class = "container-seller">
+<div class="row d-inline-flex justify-content-between">
+<div class="d-flex col-6">
+  <div class = "container-product"  style="background-image: url('<%= asset_url "parchement.png" %>');background-size: contain; background-repeat: no-repeat; height: 1000px">
+  <div class = "product-owner">
+    <%= cl_image_tag @product.user.user_avatar.key, class: "avatar-bordered me-3", alt: "avatar" %>
     <h2><%= @product.user.first_name %> <%= @product.user.last_name %></h2>
-    <h2></h2>
   </div>
-  <div class = "container-product"  style="background-image: url('<%= asset_url "parchement.png" %>')">
     <div class = "card-info">
       <div class = "image-and-details">
         <div class = "temp-image"  style="background-image: url('<%= cl_image_path @product.product_image.key %>')">
@@ -16,13 +18,18 @@
         </div>
       </div>
       <div class = "card-description">
-        <%= @product.description %>
+        <p class="fs-4"><%= @product.description %></p>
       </div>
     </div>
   </div>
 </div>
-  <div class = "container-booking">
-    <%= simple_form_for([@product, @renting],
+
+
+<div class="col-3 d-flex mx-5">
+<div class = "container-booking mt-5">
+<h2 class="text-white text-center">Rent this stuff!</h2>
+<p class="text-white text-center">(<%= @product.price %> gold coins a day)</p>
+  <%= simple_form_for([@product, @renting],
                     html: {
                       data: {
                         controller: 'datepicker'
@@ -33,4 +40,10 @@
     <%= f.label :total_price %>
     <%= f.submit %>
     <% end %>
-  </div>
+</div>
+</div>
+
+</div>
+
+</div>
+
