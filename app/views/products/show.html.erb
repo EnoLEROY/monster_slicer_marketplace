@@ -24,21 +24,26 @@
   </div>
 </div>
 
+
 <div class="col-3 d-flex mx-5">
 <div class = "container-booking mt-5">
 <h2 class="text-white text-center">Rent this stuff!</h2>
 <p class="text-white text-center">(<%= @product.price %> gold coins a day)</p>
-  <%= simple_form_for([@product, @renting]) do |f| %>
-  <%= f.input :start_date,as: :string, input_html: { data: { controller: "datepicker" } } %>
-  <%= f.input :end_date, as: :string, input_html: { data: { controller: "datepicker" } } %>
-  <%= f.submit "Rent" %>
-  <% end %>
+  <%= simple_form_for([@product, @renting],
+                    html: {
+                      data: {
+                        controller: 'datepicker'
+                      }
+                    }) do |f| %>
+    <%= f.input :start_date, as: :string, label: "Pick dates", input_html: { data: { datepicker_target: 'startDateInput', } } %>
+    <%= f.input :end_date, as: :string, label: false, input_html: { data: { datepicker_target: 'endDateInput'} } %>
+    <%= f.label :total_price %>
+    <%= f.submit %>
+    <% end %>
 </div>
 </div>
 
+</div>
 
 </div>
 
-
-
-</div>
