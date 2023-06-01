@@ -54,7 +54,7 @@ attrs = {
   title: Faker::Games::Witcher.sign,
   price: 30,
   description: "This sword is ideal for the novice traveler looking for some mild adventure. You won't find a better weapon with this quality to price ratio on the market. (Serious renters only, if it breaks you'll pay!)",
-  category: "weapon",
+  category: "Weapon",
   user_id: users.sample.id
 }
 product = Product.new(attrs)
@@ -67,7 +67,7 @@ attrs = {
   title: Faker::Games::Witcher.sign,
   price: 70,
   description: "This rusty sword has defeated countless enemies. If you are looking for a big sharp piece of metal to tear through all of your enemies, this one is made for you ! It can be used by amateurs as well as professionals, as long as you have some muscles. Just rent it once and it will become your best companion for the rest of your life.",
-  category: "weapon",
+  category: "Weapon",
   user_id: users.sample.id
 }
 product = Product.new(attrs)
@@ -80,7 +80,7 @@ attrs = {
   title: Faker::Games::Witcher.sign,
   price: 99,
   description: "This age old weapon has been the trusted sword of many an aventurer.\nHand crafted and designed by monster slicer veterans, a more well rounded blade couldn't be imagined.\nBeautiful, Competent, and less than 100 gold. What more would you need to set out on your quests?",
-  category: "weapon",
+  category: "Weapon",
   user_id: users.sample.id
 }
 product = Product.new(attrs)
@@ -93,7 +93,7 @@ attrs = {
   title: Faker::Games::Witcher.sign,
   price: 200,
   description: "This blazing sword will pierce easily through your enemy's armor. Its blade is always blazing red as it was forged out of the fire of Mount Doom, and it is therefore filled with power, treachery and deceipt. However, with the right master, it can become an extremely deadly weapon. Use wisely and with caution.",
-  category: "weapon",
+  category: "Weapon",
   user_id: users.sample.id
 }
 product = Product.new(attrs)
@@ -106,7 +106,7 @@ attrs = {
   title: Faker::Games::Witcher.sign,
   price: 690,
   description: "This beast of a weapon decimates monsters with an fury matched by no other blade.The power of a single blow has been rumoured to defeat the dragon Maug... from the hobbit.\nFor the cheap price of 690 gold you too could etch your name into the monster slicer halls of fame.\nP.S. yes this is basically an NFT",
-  category: "weapon",
+  category: "Weapon",
   user_id: users.sample.id
 }
 product = Product.new(attrs)
