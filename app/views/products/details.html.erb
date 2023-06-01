@@ -17,6 +17,26 @@
       <div class="pendings-title">
         <h2>Pendings</h2>
       </div>
+      <div class="pendings-grid">
+
+        <div class = "container-rentings">
+          <% @product.rentings.each do |renting| %>
+            <div class = "card-renting">
+                <div>
+                  <%= cl_image_tag renting.user.user_avatar.key %>
+                </div>
+                <h5><%= renting.start_date.strftime("%d/%m/%y") %> to <%= renting.end_date.strftime("%d/%m/%y") %></h5>
+                <div class="btn-accept-request">
+                  <p>Accept</p>
+                </div>
+                <div class="btn-deny-request">
+                  <p>Deny</p>
+                </div>
+            </div>
+          <% end %>
+        </div>
+
+      </div>
     </div>
     <div class="stats">
       <!-- Ici on rappelle la date de début de loc, le nombre de loc total, le revenu total généré -->
