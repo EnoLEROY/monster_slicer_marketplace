@@ -1,15 +1,30 @@
 .container {
   width: 600px;
   margin: 0 auto;
+  text-align: center;
+  align-items: center;
 }
-
-.container-rentings {
+.container-rentings{
+  width: 50%;
+  text-align: center;
+}
+.container-rentings-inner {
   display: flex;
   flex-wrap: wrap;
-  justify-content: left;
+  justify-content: space-evenly;
+  width: 100%;
 }
 
 .container-large {
-  width: 90%;
+  width: 95%;
   margin: 0 auto;
+}
+
+.container-half {
+  width: 45%;
+  margin: 0 auto;
+}
+
+.container-background {
+  text-align: center;
 }

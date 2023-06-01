@@ -1,5 +1,4 @@
 // Le css de la page globale est dans pages/_products_index
-
 .products-cards {
   background-color: #f9ffdc;
   padding: 10px;
@@ -120,4 +119,10 @@
 .category-selector form{
   display: flex;
   flex-direction: column;
+}
+
+.background-product-new {
+  background-color: #F1E8C7;
+  border: 5px solid #927E6A;
+  padding: 20px
 }

@@ -1,20 +1,46 @@
 <div class = "container-background" style="background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('<%= asset_url 'background-wall.jpg' %>');min-height: 100vh;">
-  <h1>Welcome! <%= current_user.first_name %></h1>
-  <h2>Rentings:</h2>
-  <div class = "container-large" >
+  <div class = "welcome" style="background-image: url('<%= asset_url 'banner-title.png' %>');">
+    <h1>Welcome <%= current_user.first_name %>!</h1>
+  </div>
+
+  <div class = "container-large d-flex">
     <div class = "container-rentings">
-      <% @rentings.each do |renting| %>
-        <div class = "card-renting">
-            <div>
-              <%= cl_image_tag renting.product.product_image.key %>
+      <h2>My Bookings</h2>
+      <div class = "container-rentings-inner">
+        <% @rentings.each do |renting| %>
+          <div class = "card-renting">
+            <div class = "card-renting-info">
+              <div class = "card-renting-image">
+                <%= cl_image_tag renting.product.product_image.key %>
+              </div>
+              <div class = "card-renting-dates">
+                <h5>Start: <%= renting.start_date.strftime("%d of %B %Y") %></h5>
+                <h5>End: <%= renting.end_date.strftime("%d of %B %Y") %></h5>
+                <h3>Status: <%= renting.status %></h3>
+              </div>
             </div>
-            <h5><%= renting.start_date.strftime("%d of %B %Y") %> to <%= renting.end_date.strftime("%d of %B %Y") %></h5>
-            <h3> status: <%= renting.status %></h3>
-            <%= link_to renting_path(renting), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, style: "text-decoration: none; color: black;" do%>
-              <i class="fa-solid fa-trash"></i>
+            <%= link_to renting_path(renting), data: {turbo_method: :delete}, style: "text-decoration: none; color: black;" do%>
+              <i class="fa-solid fa-xmark"></i>
             <% end %>
+          </div>
+        <% end %>
+      </div>
+
+    </div>
+    <div class = "container-rentings">
+      <h2>My Prodcuts</h2>
+      <div class = "container-rentings-inner">
+        <% @user_products.each do |product| %>
+        <div class = "card-renting">
+          <div class = "card-renting-info">
+            <div class = "card-renting-image">
+              <%= cl_image_tag product.product_image.key %>
+            </div>
+          </div>
         </div>
       <% end %>
+      </div>
+
     </div>
   </div>
 </div>

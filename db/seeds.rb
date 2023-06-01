@@ -27,7 +27,7 @@ i = 1
   url = "https://res.cloudinary.com/demv6536i/image/upload/v1685452456/monster_slicer/avatar-icones/avatar-icone-#{i}.jpg"
   p url
   file = URI.open(url)
-  name = user_names[i].split(' ')
+  name = user_names[i-1].split(' ')
   user = User.new(
     first_name: name.first,
     last_name: name.last,

@@ -1,0 +1,15 @@
+.welcome{
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  width: 900px;
+  height: 150px;
+  background-repeat: no-repeat;
+  background-size: 900px 150px;
+  align-items: center;
+  h1 {
+    color: white;
+    font-size: 65px;
+    margin-bottom: 30px;
+  }
+}
