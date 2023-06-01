@@ -9,6 +9,10 @@ export default class extends Controller {
 
   #disappear () {
     this.element.classList.add("card-disappear")
+
+    setTimeout(() => {
+      location.replace(location.href);
+    }, 1000);
   }
 
   accept () {
