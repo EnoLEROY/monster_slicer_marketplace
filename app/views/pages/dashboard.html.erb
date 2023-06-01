@@ -31,13 +31,15 @@
       <h2>My Prodcuts</h2>
       <div class = "container-rentings-inner">
         <% @user_products.each do |product| %>
-        <div class = "card-renting">
-          <div class = "card-renting-info">
-            <div class = "card-renting-image">
-              <%= cl_image_tag product.product_image.key %>
+        <%= link_to details_product_path(product) do %>
+          <div class = "card-renting">
+            <div class = "card-renting-info">
+              <div class = "card-renting-image">
+                <%= cl_image_tag product.product_image.key %>
+              </div>
             </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
       </div>
 
