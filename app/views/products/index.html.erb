@@ -45,15 +45,19 @@
               <div class="contenu-description">
                 <div class="contenu-text">
                   <h3><%= product.title %></h3>
+                    <%= cl_image_tag product.user.user_avatar.key, class:'avatar-bordered' %>
                   <p><%= product.description %></p>
                 </div>
+              <div class="contenu-price">
                 <div class="contenu-category">
-                  <p><i class="fa-regular fa-circle-question"></i> <%= product.category.capitalize %></p>
+                <i class="fa-regular fa-circle-question"></i>
+                <span><%= product.category.capitalize %></span>
+                </div>
+                <div class="price">
+                <span><%= product.price %></span>
+                <span><%= image_tag("coin_animated.gif", height: '16') %></span>
                 </div>
               </div>
-              <div class="contenu-price">
-                <span class="price"><%= product.price %>g</span>
-                <%= cl_image_tag product.user.user_avatar.key %>
               </div>
             </div>
           </div>
