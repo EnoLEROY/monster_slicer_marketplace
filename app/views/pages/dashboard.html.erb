@@ -1,9 +1,11 @@
 <div class = "container-background">
-  <div class = "welcome">
-    <h1>Welcome <%= current_user.first_name %>!</h1>
+  <div class="pt-2">
+    <div class = "welcome">
+      <h1>Welcome <%= current_user.first_name %>!</h1>
+    </div>
   </div>
 
-  <div class = "container-large d-flex">
+  <div class = "container-large d-flex pt-3">
     <div class = "container-rentings">
       <h2>My Bookings</h2>
       <div class = "container-rentings-inner">
@@ -32,14 +34,16 @@
       <h2>My Products</h2>
       <div class = "container-rentings-inner">
         <% @user_products.each do |product| %>
-        <div class = "card-renting">
-          <div class = "card-renting-info">
-            <div class = "card-renting-image">
-              <%= cl_image_tag product.product_image.key %>
+        <%= link_to product_path(product) do %>
+          <div class = "card-renting">
+            <div class = "card-renting-info">
+              <div class = "card-renting-image">
+                <%= cl_image_tag product.product_image.key %>
+              </div>
+              <div class='px-3'><h2 class='text-black'><%= product.title %></h2></div>
             </div>
-            <div class='px-3'><h2 class='text-black'><%= product.title %></h2></div>
           </div>
-        </div>
+        <% end %>
       <% end %>
       </div>
     </div>
