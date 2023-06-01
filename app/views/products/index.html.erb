@@ -12,11 +12,13 @@
   <div class="products-body">
     <div class="navigation-sidebar">
       <div class="category-selector">
-        <h4>Category</h4>
-        <%= form_with url: products_path, method: :get do |form| %>
-          <%= form.select :query, Product::CATEGORIES%>
-          <%= form.submit "Search", class: "btn btn-primary" %>
+        <%= simple_form_for :search, url: products_path, method: :get do |f| %>
+          <%= f.input :query, collection: Product::CATEGORIES, label: "Category"%>
+          <%= f.input :search_query, label: "Filter", class: "button-gold" %>
+          <%= f.button :submit, "Search", class: "btn btn-primary" %>
         <% end %>
+
+
 
           <%# <select name="Category" id="products">
             <option value="volvo">Weapon</option>
@@ -28,9 +30,6 @@
       <div class="date-selector">
         <h4>Rental dates</h4>
         <p>En vrai on utilisera ce qu'on a vu mardi matin</p>
-      </div>
-      <div class="button-gold" style="background-image: url('<%= asset_url 'gold-button-new.png' %>')">
-        <p>Filter</p>
       </div>
     </div>
 
