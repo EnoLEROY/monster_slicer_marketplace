@@ -12,7 +12,7 @@
             </div>
             <div class = "title-stats">
               <h2><%= @product.title %></h1>
-              <h3>Price: <%= @product.price %></h3>
+              <h3>Price: <%= @product.price %> <%= image_tag("coin_animated.gif", height: '16') %></h3>
               <h3>Category: <%= @product.category %></h3>
             </div>
           </div>
@@ -23,7 +23,7 @@
       </div>
     </div>
 
-    <div class="col-3 d-flex mx-5">
+    <div class="col-3 d-flex mx-5 getUnavailable" data-unavailable="<%= @unavailable_dates.to_json %>">
       <div class = "container-booking mt-5">
         <h2 class="text-white text-center">Rent this stuff!</h2>
         <p class="text-white text-center">(<%= @product.price %> gold coins a day)</p>
@@ -33,7 +33,7 @@
                   controller: 'datepicker'
                 }
               }) do |f| %>
-          <%= f.input :start_date, as: :string, label: "Pick dates", input_html: { data: { datepicker_target: 'startDateInput', } } %>
+          <%= f.input :start_date, as: :string, label: "Pick dates", input_html: { data: { datepicker_target: 'startDateInput'} } %>
           <%= f.input :end_date, as: :string, label: false, input_html: { data: { datepicker_target: 'endDateInput'} } %>
           <%= f.label :total_price %>
           <%= f.submit %>

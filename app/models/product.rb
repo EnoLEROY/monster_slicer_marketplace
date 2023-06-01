@@ -9,4 +9,11 @@ class Product < ApplicationRecord
   # has_many :users, through: :rentings
 
   CATEGORIES = ["Weapon", "Equipement", "Enchentment", "Potion"]
+
+  include PgSearch::Model
+  pg_search_scope :search_title_and_description,
+  against: [ :title, :description ],
+  using: {
+    tsearch: { prefix: true }
+  }
 end

@@ -2,16 +2,28 @@ class ProductsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    if params[:query].present?
-      @products = Product.where(category: params[:query])
+    @search_product = Product.new
+    if params[:search].present? && params[:search][:search_query].present?
+        @products_temp = Product.search_title_and_description(params[:search][:search_query])
     else
-      @products = Product.all
+      @products_temp = Product.all
+    end
+    if params[:search].present? && params[:search][:query].present?
+      @products = @products_temp.select do |product|
+        product if product.category == params[:search][:query]
+      end
+    else
+      @products = @products_temp
     end
   end
 
   def show
     @product = Product.find(params[:id])
     @renting = Renting.new
+    @rentings = Renting.where(product_id: @product.id)
+    @unavailable_dates = @rentings.map do |renting|
+      { from: renting.start_date.strftime("%Y-%m-%d"), to: renting.end_date.strftime("%Y-%m-%d") }
+    end
   end
 
   def new
