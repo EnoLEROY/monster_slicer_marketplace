@@ -1,15 +1,51 @@
 .card-renting {
-  background-color: #927E6A;
+  background-color: #F1E8C7;
+  margin: 20px;
+  padding: 5px;
+  border-radius: 5px;
+  width: 350px;
+  color: black;
+  border: 5px solid #927E6A;
+  display: flex;
+  height: 120px;
+  justify-content: space-between;
+
+}
+
+.card-product {
+  background-color: #F1E8C7;
   margin: 20px;
   padding: 5px;
   border-radius: 5px;
   width: 400px;
   color: black;
-  border: 5px solid #F1E8C7;
+  border: 5px solid #927E6A;
+  display: flex;
+  height: 150px;
+  justify-content: space-between;
+
+}
+.card-renting-info {
+  display: flex;
+  justify-content: left;
+  align-items: center;
 }
 
+.card-renting-image {
+  background-color: #927E6A;
+  margin-inline: 3px;
+}
+.card-renting-dates {
+  margin-left: 10px
+}
+
+.card-renting i{
+  margin-right: 5px;
+}
 .container-background {
   h1,h2{
     color:white
   }
+  justify-content: center;
 }
+
