@@ -19,19 +19,27 @@
       </div>
       <div class="pendings-grid">
 
-        <div class = "container-rentings">
-          <% @product.rentings.each do |renting| %>
-            <div class = "card-renting">
-                <div>
-                  <%= cl_image_tag renting.user.user_avatar.key %>
+        <div class="container-rentings">
+          <% @product.rentings.where(status: "pending").each do |renting| %>
+            <div class="card-renting-details"
+                 data-controller="card-disappear"
+                 data-card-disappear-target="card"
+                 data-card-disappear-accept-value='<%= "/products/#{renting.product.id}/rentings/#{renting.id}/accept" %>'
+                 data-card-disappear-deny-value='<%= "/products/#{renting.product.id}/rentings/#{renting.id}/deny" %>'>
+              <div>
+                <%= cl_image_tag renting.user.user_avatar.key, class: 'avatar-renting-img' %>
+              </div>
+              <div class="card-renting-content">
+                <div class="renting-infos-text">
+                  <span><%= renting.start_date.strftime("%d/%m/%y") %> to <%= renting.end_date.strftime("%d/%m/%y") %><br>
+                  Name: <%= renting.user.first_name %> <%= renting.user.last_name %><br>
+                  Price : <%= @product.price * ((renting.end_date - renting.start_date).to_i / (60*60*24) + 1) %>g</span>
                 </div>
-                <h5><%= renting.start_date.strftime("%d/%m/%y") %> to <%= renting.end_date.strftime("%d/%m/%y") %></h5>
-                <div class="btn-accept-request">
-                  <p>Accept</p>
+                <div class="btn-choice-request">
+                  <button class="confirm-button" data-action="click->card-disappear#accept"></button>
+                  <button class="deny-button" data-action="click->card-disappear#deny"></button>
                 </div>
-                <div class="btn-deny-request">
-                  <p>Deny</p>
-                </div>
+              </div>
             </div>
           <% end %>
         </div>
@@ -62,7 +70,7 @@
           <th>Amount</th>
           <th>Accepted ?</th>
         </tr>
-        <% @product.rentings.where(status: "pending").each do |renting| %><!-- .not -->
+        <% @product.rentings.where.not(status: "pending").each do |renting| %><!-- .not -->
           <tr>
             <td><%= renting.start_date.strftime("%d/%m/%y") %></td>
             <td><%= renting.end_date.strftime("%d/%m/%y") %></td>

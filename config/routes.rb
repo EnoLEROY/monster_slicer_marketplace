@@ -6,7 +6,12 @@ Rails.application.routes.draw do
     member do
       get :details
     end
-    resources :rentings, only: [:new, :create]
+    resources :rentings, only: [:new, :create] do
+      member do
+        get :accept
+        get :deny
+      end
+    end
   end
   resources :rentings, only: [:destroy]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
