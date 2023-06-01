@@ -83,3 +83,8 @@
   width: 100%;
   z-index: 1;
   }
+
+  .category-selector form{
+    display: flex;
+    flex-direction: column;
+  }
