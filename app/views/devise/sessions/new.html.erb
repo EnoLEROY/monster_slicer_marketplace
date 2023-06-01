@@ -1,7 +1,7 @@
 <div class="container" style="background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('<%= asset_url 'background-wall.jpg' %>'); min-height: 100vh;; min-width: 100vw;">
 
 <div class="container">
-<h2>Log in</h2>
+<h2 class='white'>Log in</h2>
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="form-inputs">
     <%= f.input :email,
