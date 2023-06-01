@@ -19,9 +19,13 @@
       </div>
       <div class="pendings-grid">
 
-        <div class="container-rentings" data-controller="card-disappear">
-          <% @product.rentings.each do |renting| %>
-            <div class="card-renting-details" data-card-disappear-target="card">
+        <div class="container-rentings">
+          <% @product.rentings.where(status: "pending").each do |renting| %>
+            <div class="card-renting-details"
+                 data-controller="card-disappear"
+                 data-card-disappear-target="card"
+                 data-card-disappear-accept-value='<%= "/products/#{renting.product.id}/rentings/#{renting.id}/accept" %>'
+                 data-card-disappear-deny-value='<%= "/products/#{renting.product.id}/rentings/#{renting.id}/deny" %>'>
               <div>
                 <%= cl_image_tag renting.user.user_avatar.key, class: 'avatar-renting-img' %>
               </div>
@@ -32,8 +36,8 @@
                   Price : <%= @product.price * ((renting.end_date - renting.start_date).to_i / (60*60*24) + 1) %>g</span>
                 </div>
                 <div class="btn-choice-request">
-                  <button class="confirm-button" data-action="click->card-disappear#disappear" data-card-disappear-url-value=<% "/rentings/#{renting.id}/confirm" %>></button>
-                  <button class="deny-button" data-action="click->card-disappear#disappear" data-card-disappear-url-value=<% "/rentings/#{renting.id}/deny" %>></button>
+                  <button class="confirm-button" data-action="click->card-disappear#accept"></button>
+                  <button class="deny-button" data-action="click->card-disappear#deny"></button>
                 </div>
               </div>
             </div>
@@ -66,7 +70,7 @@
           <th>Amount</th>
           <th>Accepted ?</th>
         </tr>
-        <% @product.rentings.where(status: "pending").each do |renting| %><!-- .not -->
+        <% @product.rentings.where.not(status: "pending").each do |renting| %><!-- .not -->
           <tr>
             <td><%= renting.start_date.strftime("%d/%m/%y") %></td>
             <td><%= renting.end_date.strftime("%d/%m/%y") %></td>

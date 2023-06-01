@@ -8,7 +8,8 @@ Rails.application.routes.draw do
     end
     resources :rentings, only: [:new, :create] do
       member do
-        get :accept, :deny
+        get :accept
+        get :deny
       end
     end
   end

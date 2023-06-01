@@ -23,11 +23,21 @@ class RentingsController < ApplicationController
   def accept
     @renting = Renting.find(params[:id])
     @renting.status = "Accepted"
+    @renting.save
+    respond_to do |format|
+      format.js {render inline: "location.reload();" } # ça fait RIEN
+      format.json
+    end
+
   end
 
   def deny
     @renting = Renting.find(params[:id])
     @renting.status = "Denied"
+    @renting.save
+    respond_to do |format|
+      format.json
+    end
   end
 
   private
