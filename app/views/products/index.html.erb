@@ -11,7 +11,7 @@
 
   <div class="products-body">
     <div class="navigation-sidebar">
-      <div class="category-selector">
+      <div class="category-selector text-black">
         <%= simple_form_for :search, url: products_path, method: :get do |f| %>
           <%= f.input :query, collection: Product::CATEGORIES, label: "Category"%>
           <%= f.input :search_query, label: "Filter", class: "button-gold" %>
@@ -29,7 +29,7 @@
       </div>
       <div class="date-selector">
         <h4>Rental dates</h4>
-        <p>En vrai on utilisera ce qu'on a vu mardi matin</p>
+        <p>Comming soon</p>
       </div>
     </div>
 
