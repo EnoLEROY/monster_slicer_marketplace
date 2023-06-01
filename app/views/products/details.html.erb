@@ -7,15 +7,35 @@
       <div class="product-infos">
         <h1><%= @product.title %></h1>
         <p><%= @product.description %></p>
-        <p>Price per day : <%= @product.price %></p>
-        <p>Category : <%= @product.category %></p>
-        <p>Currently, this item is : free, booked, removed from the market</p>
+        <p>Price per day : <strong><%= @product.price %></strong></p>
+        <p>Category : <strong><%= @product.category %></strong></p>
+        <p>Currently, this item is : <strong><%= @current_state_product %></strong></p>
       </div>
     </div>
     <div class="pendings">
       <!-- Ici je veux avoir une carte par pending, reprenant l'avat et le nom du loueur, la période et le prix total -->
       <div class="pendings-title">
         <h2>Pendings</h2>
+      </div>
+      <div class="pendings-grid">
+
+        <div class = "container-rentings">
+          <% @product.rentings.each do |renting| %>
+            <div class = "card-renting">
+                <div>
+                  <%= cl_image_tag renting.user.user_avatar.key %>
+                </div>
+                <h5><%= renting.start_date.strftime("%d/%m/%y") %> to <%= renting.end_date.strftime("%d/%m/%y") %></h5>
+                <div class="btn-accept-request">
+                  <p>Accept</p>
+                </div>
+                <div class="btn-deny-request">
+                  <p>Deny</p>
+                </div>
+            </div>
+          <% end %>
+        </div>
+
       </div>
     </div>
     <div class="stats">
@@ -24,9 +44,9 @@
         <h2>Statistics</h2>
       </div>
       <div class="stats-infos">
-        <p>Available for xx days, it has been rent yy days</p>
-        <p>In total, this item has been rent XX times</p>
-        <p>In total, this item has generated YY golds</p>
+        <p>Available for <strong><%= (Date.today() - @product.created_at.to_date).to_i %></strong> days, it has been rent <strong><%= @nb_days %></strong> days.</p>
+        <p>In total, this item has been rent <strong><%= @product.rentings.count %></strong> times.</p>
+        <p>In total, this item has generated <strong><%= @gold_earned %></strong> golds.</p>
       </div>
     </div>
     <div class="history">
@@ -42,19 +62,12 @@
           <th>Amount</th>
           <th>Accepted ?</th>
         </tr>
-        <tr>
-          <td>010101</td>
-          <td>020202</td>
-          <td>Arnaud</td>
-          <td>150</td>
-          <td>Yes</td>
-        </tr>
-        <% @product.rentings.where.not(status: "pending").each do |renting| %>
+        <% @product.rentings.where(status: "pending").each do |renting| %><!-- .not -->
           <tr>
-            <td><%= renting.start_date %></td>
-            <td><%= renting.end_date %></td>
+            <td><%= renting.start_date.strftime("%d/%m/%y") %></td>
+            <td><%= renting.end_date.strftime("%d/%m/%y") %></td>
             <td><%= renting.user.first_name %> <%= renting.user.last_name %></td>
-            <td>nb de jour à calculer</td>
+            <td><%= (renting.end_date - renting.start_date).to_i / (60*60*24) + 1 %></td>
             <td><%= renting.status %></td>
           </tr>
         <% end %>
