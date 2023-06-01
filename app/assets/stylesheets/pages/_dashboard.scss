@@ -34,6 +34,11 @@
 .card-renting-image {
   background-color: #927E6A;
   margin-inline: 3px;
+  height: 100%;
+  img {
+    object-fit: cover;
+    height: 100%;
+  }
 }
 .card-renting-dates {
   margin-left: 10px
@@ -48,4 +53,3 @@
   }
   justify-content: center;
 }
-

@@ -28,7 +28,7 @@
 
     </div>
     <div class = "container-rentings">
-      <h2>My Prodcuts</h2>
+      <h2>My Products</h2>
       <div class = "container-rentings-inner">
         <% @user_products.each do |product| %>
         <div class = "card-renting">
@@ -36,11 +36,11 @@
             <div class = "card-renting-image">
               <%= cl_image_tag product.product_image.key %>
             </div>
+            <div class='px-3'><h2 class='text-black'><%= product.title %></h2></div>
           </div>
         </div>
       <% end %>
       </div>
-
     </div>
   </div>
 </div>
