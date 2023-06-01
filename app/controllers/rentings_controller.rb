@@ -25,7 +25,6 @@ class RentingsController < ApplicationController
     @renting.status = "Accepted"
     @renting.save
     respond_to do |format|
-      format.js {render inline: "location.reload();" } # ça fait RIEN
       format.json
     end
 

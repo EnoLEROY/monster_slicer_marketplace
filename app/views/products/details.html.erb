@@ -53,7 +53,7 @@
       </div>
       <div class="stats-infos">
         <p>Available for <strong><%= (Date.today() - @product.created_at.to_date).to_i %></strong> days, it has been rent <strong><%= @nb_days %></strong> days.</p>
-        <p>In total, this item has been rent <strong><%= @product.rentings.count %></strong> times.</p>
+        <p>In total, this item has been rent <strong><%= @product.rentings.where(status: 'Accepted').count %></strong> times.</p>
         <p>In total, this item has generated <strong><%= @gold_earned %></strong> golds.</p>
       </div>
     </div>
@@ -75,7 +75,7 @@
             <td><%= renting.start_date.strftime("%d/%m/%y") %></td>
             <td><%= renting.end_date.strftime("%d/%m/%y") %></td>
             <td><%= renting.user.first_name %> <%= renting.user.last_name %></td>
-            <td><%= (renting.end_date - renting.start_date).to_i / (60*60*24) + 1 %></td>
+            <td><%= @product.price * ((renting.end_date - renting.start_date).to_i / (60*60*24) + 1) %>g</td>
             <td><%= renting.status %></td>
           </tr>
         <% end %>
