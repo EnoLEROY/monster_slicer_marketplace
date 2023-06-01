@@ -20,6 +20,10 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
     @renting = Renting.new
+    @rentings = Renting.where(product_id: @product.id)
+    @unavailable_dates = @rentings.map do |renting|
+      { from: renting.start_date.strftime("%Y-%m-%d"), to: renting.end_date.strftime("%Y-%m-%d") }
+    end
   end
 
   def new
