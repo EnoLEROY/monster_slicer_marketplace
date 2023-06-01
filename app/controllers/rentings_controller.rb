@@ -20,6 +20,16 @@ class RentingsController < ApplicationController
     @renting.destroy
   end
 
+  def accept
+    @renting = Renting.find(params[:id])
+    @renting.status = "Accepted"
+  end
+
+  def deny
+    @renting = Renting.find(params[:id])
+    @renting.status = "Denied"
+  end
+
   private
 
   def renting_params

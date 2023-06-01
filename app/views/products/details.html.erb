@@ -19,19 +19,23 @@
       </div>
       <div class="pendings-grid">
 
-        <div class = "container-rentings">
+        <div class="container-rentings" data-controller="card-disappear">
           <% @product.rentings.each do |renting| %>
-            <div class = "card-renting">
-                <div>
-                  <%= cl_image_tag renting.user.user_avatar.key %>
+            <div class="card-renting-details" data-card-disappear-target="card">
+              <div>
+                <%= cl_image_tag renting.user.user_avatar.key, class: 'avatar-renting-img' %>
+              </div>
+              <div class="card-renting-content">
+                <div class="renting-infos-text">
+                  <span><%= renting.start_date.strftime("%d/%m/%y") %> to <%= renting.end_date.strftime("%d/%m/%y") %><br>
+                  Name: <%= renting.user.first_name %> <%= renting.user.last_name %><br>
+                  Price : <%= @product.price * ((renting.end_date - renting.start_date).to_i / (60*60*24) + 1) %>g</span>
                 </div>
-                <h5><%= renting.start_date.strftime("%d/%m/%y") %> to <%= renting.end_date.strftime("%d/%m/%y") %></h5>
-                <div class="btn-accept-request">
-                  <p>Accept</p>
+                <div class="btn-choice-request">
+                  <button class="confirm-button" data-action="click->card-disappear#disappear" data-card-disappear-url-value=<% "/rentings/#{renting.id}/confirm" %>></button>
+                  <button class="deny-button" data-action="click->card-disappear#disappear" data-card-disappear-url-value=<% "/rentings/#{renting.id}/deny" %>></button>
                 </div>
-                <div class="btn-deny-request">
-                  <p>Deny</p>
-                </div>
+              </div>
             </div>
           <% end %>
         </div>

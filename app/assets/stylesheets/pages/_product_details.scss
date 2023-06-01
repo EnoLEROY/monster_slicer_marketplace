@@ -54,6 +54,31 @@
   text-align: center;
 }
 
+.card-renting-details {
+  background-color: #927E6A;
+  margin: 20px;
+  border-radius: 5px;
+  width: 400px;
+  color: black;
+  border: 5px solid #F1E8C7;
+  display: flex;
+}
+
+.card-renting-content {
+  font-size: 25px;
+}
+
+.avatar-renting-img {
+  width: 160px;
+  height: 160px;
+  object-fit: contain;
+}
+
+.btn-choice-request {
+  display: flex;
+  justify-content: space-around;
+}
+
 .stats {
   margin-inline: 10px;
 }
@@ -89,5 +114,15 @@
   border-bottom: 1px solid #ddd;
 }
 
-.history-table tr:nth-child(even) {background-color: #be7002; color: white;}
-.history-table tr:hover {background-color: rgb(255, 183, 89);}
+.history-table tr:nth-child(even) {
+  background-color: #be7002; color: white;
+}
+
+.history-table tr:hover {
+  background-color: rgb(255, 183, 89);
+}
+
+.card-disappear {
+  display: none;
+  transition: 1s;
+}
