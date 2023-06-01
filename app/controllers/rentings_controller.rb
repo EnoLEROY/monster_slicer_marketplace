@@ -25,4 +25,6 @@ class RentingsController < ApplicationController
   def renting_params
     params.require(:renting).permit(:start_date, :end_date)
   end
+
+
 end

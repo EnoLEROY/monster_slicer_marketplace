@@ -8,7 +8,7 @@
             <div>
               <%= cl_image_tag renting.product.product_image.key %>
             </div>
-            <h5><%= renting.start_date.strftime("%a, %d of %B") %> to <%= renting.end_date.strftime("%a, %d of %B") %></h5>
+            <h5><%= renting.start_date.strftime("%d of %B %Y") %> to <%= renting.end_date.strftime("%d of %B %Y") %></h5>
             <h3> status: <%= renting.status %></h3>
             <%= link_to renting_path(renting), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, style: "text-decoration: none; color: black;" do%>
               <i class="fa-solid fa-trash"></i>
