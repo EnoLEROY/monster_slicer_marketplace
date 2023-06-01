@@ -3,13 +3,13 @@ class ProductsController < ApplicationController
 
   def index
     @search_product = Product.new
-    if params[:search][:search_query].present?
-      @products_temp = Product.search_title_and_description(params[:search][:search_query])
+    if params[:search].present? && params[:search][:search_query].present?
+        @products_temp = Product.search_title_and_description(params[:search][:search_query])
     else
       @products_temp = Product.all
     end
-    if params[:search][:query].present?
-      @products = @products_temp.map do |product|
+    if params[:search].present? && params[:search][:query].present?
+      @products = @products_temp.select do |product|
         product if product.category == params[:search][:query]
       end
     else
