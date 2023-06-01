@@ -27,6 +27,8 @@
       <div class = "container-booking mt-5">
         <% if @product.user == current_user %>
           <h2 class="text-white text-center">This object belongs to you!</h2>
+          <p class="text-white text-center">(<%= @product.price %> gold coins a day)</p>
+          <p class="text-white text-center">Hopefully, it will soon be rented to a suited warrior</p>
         <% else %>
           <h2 class="text-white text-center">Rent this stuff!</h2>
           <p class="text-white text-center">(<%= @product.price %> gold coins a day)</p>
