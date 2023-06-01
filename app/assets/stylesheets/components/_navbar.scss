@@ -1,5 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
+  align-items: center;
   background: black;
   padding: 10px;
   object-fit: contain;
@@ -28,7 +29,7 @@
   padding: 3px;
   border-radius: 50%;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
-  border: white 1px solid;
+  border: white 2px solid;
   img {
   width: 40px;
   object-fit: cover;
@@ -38,4 +39,9 @@
 
 .navbar-lewagon a{
   font-size: 20px ;
+}
+
+.navbar-lewagon .nav-item {
+  display: flex;
+  align-items: center;
 }
