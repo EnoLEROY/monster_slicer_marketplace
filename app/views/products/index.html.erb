@@ -13,17 +13,12 @@
     <div class="navigation-sidebar">
       <div class="category-selector">
         <h4>Category</h4>
-        <%= form_with url: products_path, method: :get do |form| %>
-          <%= form.select :query, Product::CATEGORIES%>
-          <%= form.submit "Search", class: "btn btn-primary" %>
-        <% end %>
-
-          <%# <select name="Category" id="products">
+          <select name="Category" id="products">
             <option value="volvo">Weapon</option>
             <option value="saab">Armor</option>
             <option value="mercedes">Potions</option>
             <option value="audi">Enchantments</option>
-          </select> %>
+          </select>
       </div>
       <div class="date-selector">
         <h4>Rental dates</h4>
