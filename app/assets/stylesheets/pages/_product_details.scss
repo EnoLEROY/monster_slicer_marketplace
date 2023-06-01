@@ -11,6 +11,7 @@
 }
 
 .product-description {
+  margin-top: 15px;
   display: flex;
   width: 100%;
 }
@@ -84,9 +85,8 @@
 }
 
 .history-table tr{
-  border-bottom: 1px solid;
+  border-bottom: 1px solid #ddd;
 }
 
-.history-table td{
-  border-left: 1px solid;
-}
+.history-table tr:nth-child(even) {background-color: #be7002; color: white;}
+.history-table tr:hover {background-color: rgb(255, 183, 89);}
