@@ -72,7 +72,7 @@ attrs = {
   price: 30,
   description: "This sword is ideal for the novice traveler looking for some mild adventure. You won't find a better weapon with this quality to price ratio on the market. (Serious renters only, if it breaks you'll pay!)",
   category: Product::CATEGORIES[0],
-  user_id: personna
+  user_id: personna.id
 }
 product = Product.new(attrs)
 product.product_image.attach(io: files[0], filename: 'sword-1.png', content_type: "image/png")
