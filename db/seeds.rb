@@ -45,16 +45,17 @@ end
 url = "https://res.cloudinary.com/demv6536i/image/upload/v1685452456/monster_slicer/avatar-icones/avatar-icone-4.jpg"
 p url
 file = URI.open(url)
-name = "Aloy Rivera"
 user = User.new(
-  first_name: name.first,
-  last_name: name.last,
+  first_name: "Aloy",
+  last_name: "Riviera",
   email: "personna@exemple.com",
   password: "testingtest1"
 )
 user.user_avatar.attach(io: file, filename: "avatar-icone-4.jpg", content_type: "image/jpg")
 user.save!
 p user
+personna = user
+
 
 
 # Products ----------------------------------
@@ -71,7 +72,7 @@ attrs = {
   price: 30,
   description: "This sword is ideal for the novice traveler looking for some mild adventure. You won't find a better weapon with this quality to price ratio on the market. (Serious renters only, if it breaks you'll pay!)",
   category: Product::CATEGORIES[0],
-  user_id: users.sample.id
+  user_id: personna
 }
 product = Product.new(attrs)
 product.product_image.attach(io: files[0], filename: 'sword-1.png', content_type: "image/png")
