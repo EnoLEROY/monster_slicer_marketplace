@@ -52,4 +52,20 @@
     color:white
   }
   justify-content: center;
+  background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(https://res.cloudinary.com/demv6536i/image/upload/v1685452443/monster_slicer/background-wall.jpg);
+  min-height: 100vh;
+}
+
+.sword {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  img{
+    width: 100%;
+    object-fit: contain;
+    position : sticky;
+    top: 150px;
+  }
+  height : 95vh;
+  width : 200px;
 }
