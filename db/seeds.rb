@@ -41,6 +41,21 @@ i = 1
   i += 1
 end
 
+# Personnna
+url = "https://res.cloudinary.com/demv6536i/image/upload/v1685452456/monster_slicer/avatar-icones/avatar-icone-4.jpg"
+p url
+file = URI.open(url)
+name = "Aloy Rivera"
+user = User.new(
+  first_name: name.first,
+  last_name: name.last,
+  email: "personna@exemple.com",
+  password: "testingtest1"
+)
+user.user_avatar.attach(io: file, filename: "avatar-icone-4.jpg", content_type: "image/jpg")
+user.save!
+p user
+
 
 # Products ----------------------------------
 products = []
@@ -52,7 +67,7 @@ for i in 1..5
 end
 
 attrs = {
-  title: Faker::Games::Witcher.sign,
+  title: "Bread Cutter",
   price: 30,
   description: "This sword is ideal for the novice traveler looking for some mild adventure. You won't find a better weapon with this quality to price ratio on the market. (Serious renters only, if it breaks you'll pay!)",
   category: Product::CATEGORIES[0],
@@ -65,7 +80,7 @@ p product
 products << product
 
 attrs = {
-  title: Faker::Games::Witcher.sign,
+  title: "Goblin Slasher",
   price: 70,
   description: "This rusty sword has defeated countless enemies. If you are looking for a big sharp piece of metal to tear through all of your enemies, this one is made for you ! It can be used by amateurs as well as professionals, as long as you have some muscles. Just rent it once and it will become your best companion for the rest of your life.",
   category: Product::CATEGORIES[0],
@@ -78,7 +93,7 @@ p product
 products << product
 
 attrs = {
-  title: Faker::Games::Witcher.sign,
+  title: "Royal Guard Sword",
   price: 99,
   description: "This age old weapon has been the trusted sword of many an aventurer.\nHand crafted and designed by monster slicer veterans, a more well rounded blade couldn't be imagined.\nBeautiful, Competent, and less than 100 gold. What more would you need to set out on your quests?",
   category: Product::CATEGORIES[0],
@@ -91,7 +106,7 @@ p product
 products << product
 
 attrs = {
-  title: Faker::Games::Witcher.sign,
+  title: "Fire Breath",
   price: 200,
   description: "This blazing sword will pierce easily through your enemy's armor. Its blade is always blazing red as it was forged out of the fire of Mount Doom, and it is therefore filled with power, treachery and deceipt. However, with the right master, it can become an extremely deadly weapon. Use wisely and with caution.",
   category: Product::CATEGORIES[0],
@@ -104,7 +119,7 @@ p product
 products << product
 
 attrs = {
-  title: Faker::Games::Witcher.sign,
+  title: "Dragon Slicer",
   price: 690,
   description: "This beast of a weapon decimates monsters with an fury matched by no other blade.The power of a single blow has been rumoured to defeat the dragon Maug... from the hobbit.\nFor the cheap price of 690 gold you too could etch your name into the monster slicer halls of fame.\nP.S. yes this is basically an NFT",
   category: Product::CATEGORIES[0],
