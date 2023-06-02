@@ -11,10 +11,12 @@
 
   <div class="products-body">
     <div class="navigation-sidebar">
-      <div class="category-selector text-black">
+      <div class="category-selector text-black" data-controller='date-filter'>
         <%= simple_form_for :search, url: products_path, method: :get do |f| %>
           <%= f.input :query, collection: Product::CATEGORIES, label: "Category"%>
           <%= f.input :search_query, label: "Filter", class: "button-gold" %>
+          <%= f.input :opening_date, label: 'Date Filter', as: :string, input_html: { data: {date_filter_target: "startDateInput" } } %>
+          <%= f.input :end_date, as: :string, label: false, input_html: { data: { date_filter_target: 'endDateInput'} } %>
           <%= f.button :submit, "Search", class: "btn btn-primary" %>
         <% end %>
 
