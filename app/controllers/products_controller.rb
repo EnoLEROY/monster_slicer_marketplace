@@ -4,18 +4,27 @@ class ProductsController < ApplicationController
   def index
     @search_product = Product.new
     if params[:search].present? && params[:search][:search_query].present?
-      @products_temp = Product.search_title_and_description(params[:search][:search_query])
+      products_temp = Product.search_title_and_description(params[:search][:search_query])
     else
-      @products_temp = Product.all
+      products_temp = Product.all
     end
     if params[:search].present? && params[:search][:query].present?
-      @products = @products_temp.select do |product|
+      products_temp2 = products_temp.select do |product|
         product if product.category == params[:search][:query]
       end
     else
-      @products = @products_temp
+      products_temp2 = products_temp
     end
-    raise
+    if params[:search].present? && params[:search][:opening_date].present? && params[:search][:end_date].present?
+      search_opening_date = DateTime.strptime(params[:search][:opening_date], "%Y-%m-%d")
+      search_end_date = DateTime.strptime(params[:search][:end_date], "%Y-%m-%d")
+      date_range = [search_opening_date.to_i, search_end_date.to_i]
+      @products = products_temp2.select do |product|
+        available?(date_range, product)
+      end
+    else
+      @products = products_temp2
+    end
   end
 
   def show
@@ -87,5 +96,15 @@ class ProductsController < ApplicationController
       end
     end
     return status
+  end
+
+  def available?(date_range, product)
+    is_available = true
+    product.rentings.each do |renting|
+      if renting.start_date.to_i.between?(date_range[0], date_range[1]) || renting.end_date.to_i.between?(date_range[0], date_range[1])
+        is_available = false
+      end
+    end
+    return is_available
   end
 end

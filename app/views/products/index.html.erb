@@ -11,27 +11,15 @@
 
   <div class="products-body">
     <div class="navigation-sidebar">
+      <h2>Filters</h2>
       <div class="category-selector text-black" data-controller='date-filter'>
         <%= simple_form_for :search, url: products_path, method: :get do |f| %>
           <%= f.input :query, collection: Product::CATEGORIES, label: "Category"%>
-          <%= f.input :search_query, label: "Filter", class: "button-gold" %>
-          <%= f.input :opening_date, label: 'Date Filter', as: :string, input_html: { data: {date_filter_target: "startDateInput" } } %>
+          <%= f.input :search_query, label: "Search", class: "button-gold" %>
+          <%= f.input :opening_date, label: 'Date', as: :string, input_html: { data: {date_filter_target: "startDateInput" } } %>
           <%= f.input :end_date, as: :string, label: false, input_html: { data: { date_filter_target: 'endDateInput'} } %>
           <%= f.button :submit, "Search", class: "btn btn-primary" %>
         <% end %>
-
-
-
-          <%# <select name="Category" id="products">
-            <option value="volvo">Weapon</option>
-            <option value="saab">Armor</option>
-            <option value="mercedes">Potions</option>
-            <option value="audi">Enchantments</option>
-          </select> %>
-      </div>
-      <div class="date-selector">
-        <h4>Rental dates</h4>
-        <p>Comming soon</p>
       </div>
     </div>
 
