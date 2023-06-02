@@ -9,7 +9,9 @@
   display: flex;
   height: 120px;
   justify-content: space-between;
-
+  h3, h5 {
+    color: black;
+  }
 }
 
 .card-product {
@@ -31,6 +33,10 @@
   align-items: center;
 }
 
+.card-renting i{
+  margin-right: 5px;
+}
+
 .card-renting-image {
   background-color: #583b1e;
   margin-inline: 3px;
@@ -45,9 +51,6 @@
   margin-left: 10px
 }
 
-.card-renting i{
-  margin-right: 5px;
-}
 .container-background {
   h1,h2{
     color:white

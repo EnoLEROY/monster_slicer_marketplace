@@ -10,42 +10,44 @@
       <h2>My Bookings</h2>
       <div class = "container-rentings-inner">
         <% @rentings.where("end_date > ?", Date.today).each do |renting| %>
-          <div class = "card-renting" style="background-image: linear-gradient(rgba(255,255,255,0.1),rgba(255,255,255,0.1)), url('<%= asset_url 'card-background.png' %>')">
-            <div class = "card-renting-info">
-              <div class = "card-renting-image">
-                <%= cl_image_tag renting.product.product_image.key %>
+          <%= link_to details_product_path(renting.product) do %>
+            <div class = "card-renting" style="background-image: linear-gradient(rgba(255,255,255,0.1),rgba(255,255,255,0.1)), url('<%= asset_url 'card-background.png' %>')">
+              <div class = "card-renting-info">
+                <div class = "card-renting-image">
+                  <%= cl_image_tag renting.product.product_image.key %>
+                </div>
+                <div class = "card-renting-dates">
+                  <h5>Start: <%= renting.start_date.strftime("%d of %B %Y") %></h5>
+                  <h5>End: <%= renting.end_date.strftime("%d of %B %Y") %></h5>
+                  <h3>Status: <%= renting.status %></h3>
+                </div>
               </div>
-              <div class = "card-renting-dates">
-                <h5>Start: <%= renting.start_date.strftime("%d of %B %Y") %></h5>
-                <h5>End: <%= renting.end_date.strftime("%d of %B %Y") %></h5>
-                <h3>Status: <%= renting.status %></h3>
-              </div>
+              <%= link_to renting_path(renting), data: {turbo_method: :delete}, style: "text-decoration: none; color: black;" do%>
+                <i class="fa-solid fa-xmark"></i>
+              <% end %>
             </div>
-            <%= link_to renting_path(renting), data: {turbo_method: :delete}, style: "text-decoration: none; color: black;" do%>
-              <i class="fa-solid fa-xmark"></i>
-            <% end %>
-          </div>
+          <% end %>
         <% end %>
       </div>
     </div>
     <%# <div class="sword"><img src="http://res.cloudinary.com/demv6536i/image/upload/v1685649542/development/sword-5.png" alt="sword"></div> %>
     <div class="sword"><img src="http://res.cloudinary.com/demv6536i/image/upload/v1685652069/development/zelda-master-sword.png" alt="sword"></div>
-    <div class = "container-rentings">
-      <h2>My Products</h2>
-      <div class = "container-rentings-inner">
-        <% @user_products.each do |product| %>
-        <%= link_to details_product_path(product) do %>
-          <div class = "card-renting" style="background-image: linear-gradient(rgba(255,255,255,0.1),rgba(255,255,255,0.1)), url('<%= asset_url 'card-background.png' %>')">
-            <div class = "card-renting-info">
-              <div class = "card-renting-image">
-                <%= cl_image_tag product.product_image.key %>
+      <div class = "container-rentings">
+        <h2>My Products</h2>
+        <div class = "container-rentings-inner">
+          <% @user_products.each do |product| %>
+          <%= link_to details_product_path(product) do %>
+            <div class = "card-renting" style="background-image: linear-gradient(rgba(255,255,255,0.1),rgba(255,255,255,0.1)), url('<%= asset_url 'card-background.png' %>')">
+              <div class = "card-renting-info">
+                <div class = "card-renting-image">
+                  <%= cl_image_tag product.product_image.key %>
+                </div>
+                <div class='px-3'><h2 class='text-black'><%= product.title %></h2></div>
               </div>
-              <div class='px-3'><h2 class='text-black'><%= product.title %></h2></div>
             </div>
-          </div>
+          <% end %>
         <% end %>
-      <% end %>
+        </div>
       </div>
-    </div>
   </div>
 </div>
