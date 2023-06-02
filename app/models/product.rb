@@ -8,7 +8,7 @@ class Product < ApplicationRecord
   # ligne a verifier pour recupérer les users qui louent un produit
   # has_many :users, through: :rentings
 
-  CATEGORIES = ["Weapon", "Equipement", "Enchentment", "Potion"]
+  CATEGORIES = ["Weapon", "Equipement", "Enchantment", "Potion"]
 
   include PgSearch::Model
   pg_search_scope :search_title_and_description,

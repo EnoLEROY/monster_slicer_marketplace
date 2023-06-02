@@ -13,7 +13,7 @@
             <div class = "title-stats">
               <h2><%= @product.title %></h1>
               <h3>Price: <%= @product.price %> <%= image_tag("coin_animated.gif", height: '16') %></h3>
-              <h3>Category: <%= @product.category %></h3>
+              <h3>Category: <%= @product.category %> <%= image_tag("category_#{@product.category.downcase}.png") %></h3>
             </div>
           </div>
           <div class = "card-description">
