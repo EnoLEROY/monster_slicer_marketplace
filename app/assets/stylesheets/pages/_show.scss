@@ -43,3 +43,17 @@ h1,h2,h3 {
   padding-inline: 90px;
 
 }
+.temp-image {
+  height: 150px;
+  width: 150px;
+  margin-right: 10px;
+  background-color: #927E6A;
+  border-radius: 2px;
+  img {
+    height: 150px;
+    width: 150px;
+    object-fit: scale-down;
+    background-position: center;
+    border: 3px solid gold;
+  }
+}
