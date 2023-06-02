@@ -1,9 +1,11 @@
-<div class = "container-background" style="background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('<%= asset_url 'background-wall.jpg' %>');min-height: 100vh;">
-  <div class = "welcome" style="background-image: url('<%= asset_url 'banner-title.png' %>');">
-    <h1>Welcome <%= current_user.first_name %>!</h1>
+<div class = "container-background">
+  <div class="pt-2">
+    <div class = "welcome">
+      <h1>Welcome <%= current_user.first_name %>!</h1>
+    </div>
   </div>
 
-  <div class = "container-large d-flex">
+  <div class = "container-large d-flex pt-3">
     <div class = "container-rentings">
       <h2>My Bookings</h2>
       <div class = "container-rentings-inner">
@@ -25,20 +27,23 @@
           </div>
         <% end %>
       </div>
-
     </div>
-    <div class = "container-rentings">
+    <%# <div class="sword"><img src="http://res.cloudinary.com/demv6536i/image/upload/v1685649542/development/sword-5.png" alt="sword"></div> %>
+    <div class="sword"><img src="http://res.cloudinary.com/demv6536i/image/upload/v1685652069/development/zelda-master-sword.png" alt="sword"></div>
+    <div class = "container-rentings" id='container-my-products'>
       <h2>My Products</h2>
       <div class = "container-rentings-inner">
         <% @user_products.each do |product| %>
-        <div class = "card-renting">
-          <div class = "card-renting-info">
-            <div class = "card-renting-image">
-              <%= cl_image_tag product.product_image.key %>
+        <%= link_to product_path(product) do %>
+          <div class = "card-renting">
+            <div class = "card-renting-info">
+              <div class = "card-renting-image">
+                <%= cl_image_tag product.product_image.key %>
+              </div>
+              <div class='px-3'><h2 class='text-black'><%= product.title %></h2></div>
             </div>
-            <div class='px-3'><h2 class='text-black'><%= product.title %></h2></div>
           </div>
-        </div>
+        <% end %>
       <% end %>
       </div>
     </div>
