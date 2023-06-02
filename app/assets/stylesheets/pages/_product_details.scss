@@ -8,6 +8,8 @@
 .container-principal {
   width: 90%;
   background-color: rgb(246, 236, 184);
+  border: 10px solid #927E6A;
+  padding-bottom: 20px ;
 }
 
 .product-description {
@@ -46,6 +48,10 @@
 
 .pendings {
   margin-inline: 10px;
+}
+
+.pendings-grid p {
+  font-size: 25px;
 }
 
 .pendings-title h2{
