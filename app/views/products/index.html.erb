@@ -10,33 +10,20 @@
   </div>
 
   <div class="products-body">
-    <div class="navigation-sidebar">
+    <div class="navigation-sidebar" style="background-image: linear-gradient(rgba(255,255,255,0.1),rgba(255,255,255,0.1)), url('<%= asset_url 'card-background.png' %>')">
       <div class="category-selector text-black">
         <%= simple_form_for :search, url: products_path, method: :get do |f| %>
-          <%= f.input :query, collection: Product::CATEGORIES, label: "Category"%>
-          <%= f.input :search_query, label: "Filter", class: "button-gold" %>
-          <%= f.button :submit, "Search", class: "btn btn-outline-dark" %>
+          <%= f.input :query, collection: Product::CATEGORIES, label: "Category", required: false%>
+          <%= f.input :search_query, label: ('<i class="fa-solid fa-magnifying-glass"></i>').html_safe, class: "button-gold", required: false %>
+          <%= f.button :submit, "Filter", class: "btn btn-outline-dark" %>
         <% end %>
-
-
-
-          <%# <select name="Category" id="products">
-            <option value="volvo">Weapon</option>
-            <option value="saab">Armor</option>
-            <option value="mercedes">Potions</option>
-            <option value="audi">Enchantments</option>
-          </select> %>
-      </div>
-      <div class="date-selector">
-        <h4>Rental dates</h4>
-        <p>Comming soon</p>
       </div>
     </div>
 
     <div class="products-cards">
       <% @products.each do |product| %>
         <div class="products-card">
-          <div class="contenu">
+          <div class="contenu" style="background-image: linear-gradient(rgba(255,255,255,0.1),rgba(255,255,255,0.1)), url('<%= asset_url 'card-background.png' %>')">
             <!-- Contenu de la card : img, texte et prix -->
             <div class="contenu-img">
               <%= cl_image_tag product.product_image.key %>
