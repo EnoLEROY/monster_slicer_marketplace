@@ -35,10 +35,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 200px;
-  img {
-    object-fit: cover;
 
+  img {
+    object-fit: scale-down;
+    height: 135px;
+    width: 200px;
   }
 }
 
@@ -61,7 +62,7 @@
 }
 
 .contenu-text {
-  height: 100px;
+  height: 130px;
   p {
   //   overflow: hidden;
     // white-space: nowrap; /* Don't forget this one */

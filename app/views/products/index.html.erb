@@ -15,7 +15,7 @@
         <%= simple_form_for :search, url: products_path, method: :get do |f| %>
           <%= f.input :query, collection: Product::CATEGORIES, label: "Category"%>
           <%= f.input :search_query, label: "Filter", class: "button-gold" %>
-          <%= f.button :submit, "Search", class: "btn btn-primary" %>
+          <%= f.button :submit, "Search", class: "btn btn-outline-dark" %>
         <% end %>
 
 
