@@ -1,4 +1,6 @@
 class Renting < ApplicationRecord
+  attr_accessor :total_price
+
   belongs_to :user
   belongs_to :product
 

@@ -1,11 +1,10 @@
 // Le css de la page globale est dans pages/_products_index
 .products-cards {
-  background-color: #f9ffdc;
   padding: 10px;
   width: 84%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: left;
   border-radius: 5px;
 }
 
@@ -15,8 +14,8 @@
   margin: 10px;
   width: 350px;
   position: relative; /* Permet de positionner les éléments enfants */
-  border: 1px solid;
   height: auto;
+  border-radius: 5px;
 }
 
 .contenu {
@@ -30,15 +29,16 @@
 }
 
 .contenu-img {
-  background-color: #927E6A;
+  background-color: #583b1e;
   margin-inline: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 200px;
-  img {
-    object-fit: cover;
 
+  img {
+    object-fit: scale-down;
+    height: 135px;
+    width: 200px;
   }
 }
 
@@ -61,7 +61,7 @@
 }
 
 .contenu-text {
-  height: 100px;
+  height: 130px;
   p {
   //   overflow: hidden;
     // white-space: nowrap; /* Don't forget this one */

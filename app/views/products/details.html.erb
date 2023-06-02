@@ -1,5 +1,5 @@
 <div class="product-details-page" style="background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('<%= asset_url 'background-wall.jpg' %>')">
-  <div class="container-principal">
+  <div class="container-principal" style="background-image: linear-gradient(rgba(255,255,255,0.1),rgba(255,255,255,0.1)), url('<%= asset_url 'card-background.png' %>')">
     <div class="product-description">
       <div class="product-img">
         <%= cl_image_tag @product.product_image.key %>
@@ -7,8 +7,8 @@
       <div class="product-infos">
         <h1><%= @product.title %></h1>
         <p><%= @product.description %></p>
-        <p>Price per day : <strong><%= @product.price %></strong></p>
-        <p>Category : <strong><%= @product.category %></strong></p>
+        <p>Price per day : <strong><%= @product.price %></strong><%= image_tag("coin_animated.gif", height: '16') %></p>
+        <p>Category : <%= image_tag("category_#{@product.category.downcase}.png") %> <strong><%= @product.category %></strong></p>
         <p>Currently, this item is : <strong><%= @current_state_product %></strong></p>
       </div>
     </div>
@@ -18,8 +18,10 @@
         <h2>Pendings</h2>
       </div>
       <div class="pendings-grid">
-
-        <div class="container-rentings">
+        <% if @product.rentings.where(status: "pending").count == 0 %>
+          <p>There is no reservation requiring action.</p>
+        <% end %>
+        <div class="container-rentings-details">
           <% @product.rentings.where(status: "pending").each do |renting| %>
             <div class="card-renting-details"
                  data-controller="card-disappear"
@@ -33,7 +35,7 @@
                 <div class="renting-infos-text">
                   <span><%= renting.start_date.strftime("%d/%m/%y") %> to <%= renting.end_date.strftime("%d/%m/%y") %><br>
                   Name: <%= renting.user.first_name %> <%= renting.user.last_name %><br>
-                  Price : <%= @product.price * ((renting.end_date - renting.start_date).to_i / (60*60*24) + 1) %>g</span>
+                  Price : <%= @product.price * ((renting.end_date - renting.start_date).to_i / (60*60*24) + 1) %><%= image_tag("coin_animated.gif", height: '16') %></span>
                 </div>
                 <div class="btn-choice-request">
                   <button class="confirm-button" data-action="click->card-disappear#accept"></button>
@@ -52,34 +54,45 @@
         <h2>Statistics</h2>
       </div>
       <div class="stats-infos">
-        <p>Available for <strong><%= (Date.today() - @product.created_at.to_date).to_i %></strong> days, it has been rent <strong><%= @nb_days %></strong> days.</p>
-        <p>In total, this item has been rent <strong><%= @product.rentings.where(status: 'Accepted').count %></strong> times.</p>
-        <p>In total, this item has generated <strong><%= @gold_earned %></strong> golds.</p>
+        <div class = "stats-info-labels">
+          <p>Days since creation: </p>
+          <p>Days rented: </p>
+          <p>Total bookings:  </p>
+          <p>Total gold generated: </p>
+        </div>
+        <div class = "stats-info-data">
+          <p><strong><%= (Date.today() - @product.created_at.to_date).to_i %></strong> day(s)</p>
+          <p><strong><%= @nb_days %></strong> day(s)</p>
+          <p><strong><%= @product.rentings.where(status: 'Accepted').count %></strong> times</p>
+          <p><strong><%= @gold_earned %></strong> <%= image_tag("coin_animated.gif", height: '16') %></p>
+        </div>
       </div>
     </div>
-    <div class="history">
-      <!-- Ici on a un tableau qui reprend pour chaque ligne, l'historique des demandes. -->
-      <div class="history-title">
-        <h2>History</h2>
-      </div>
-      <table class="history-table">
-        <tr>
-          <th>From</th>
-          <th>To</th>
-          <th>Booked by</th>
-          <th>Amount</th>
-          <th>Accepted ?</th>
-        </tr>
-        <% @product.rentings.where.not(status: "pending").each do |renting| %><!-- .not -->
+    <% if @product.rentings.where.not(status: "pending").any? %>
+      <div class="history">
+        <!-- Ici on a un tableau qui reprend pour chaque ligne, l'historique des demandes. -->
+        <div class="history-title">
+          <h2>History</h2>
+        </div>
+        <table class="history-table">
           <tr>
-            <td><%= renting.start_date.strftime("%d/%m/%y") %></td>
-            <td><%= renting.end_date.strftime("%d/%m/%y") %></td>
-            <td><%= renting.user.first_name %> <%= renting.user.last_name %></td>
-            <td><%= @product.price * ((renting.end_date - renting.start_date).to_i / (60*60*24) + 1) %>g</td>
-            <td><%= renting.status %></td>
+            <th>From</th>
+            <th>To</th>
+            <th>Booked by</th>
+            <th>Amount</th>
+            <th>Accepted ?</th>
           </tr>
-        <% end %>
-      </table>
-    </div>
+          <% @product.rentings.where.not(status: "pending").each do |renting| %><!-- .not -->
+            <tr>
+              <td><%= renting.start_date.strftime("%d/%m/%y") %></td>
+              <td><%= renting.end_date.strftime("%d/%m/%y") %></td>
+              <td><%= renting.user.first_name %> <%= renting.user.last_name %></td>
+              <td><%= @product.price * ((renting.end_date - renting.start_date).to_i / (60*60*24) + 1) %><%= image_tag("coin_animated.gif", height: '16') %></td>
+              <td><%= renting.status %></td>
+            </tr>
+          <% end %>
+        </table>
+      </div>
+    <% end %>
   </div>
 </div>

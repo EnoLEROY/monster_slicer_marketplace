@@ -8,7 +8,8 @@
         </div>
         <div class = "card-info">
           <div class = "image-and-details">
-            <div class = "temp-image"  style="background-image: url('<%= cl_image_path @product.product_image.key %>')">
+            <div class = "temp-image">
+              <%= cl_image_tag @product.product_image.key %>
             </div>
             <div class = "title-stats">
               <h2><%= @product.title %></h1>
@@ -24,7 +25,7 @@
     </div>
 
     <div class="col-3 d-flex mx-5 getUnavailable" data-unavailable="<%= @unavailable_dates.to_json %>">
-      <div class = "container-booking mt-5">
+      <div class = "container-booking mt-5" data-controller="calculate-amount" data-calculate-amount-price-value="<%= @product.price %>">
         <% if @product.user == current_user %>
           <h2 class="text-white text-center">This object belongs to you!</h2>
           <p class="text-white text-center">(<%= @product.price %> gold coins a day)</p>
@@ -38,9 +39,9 @@
                     controller: 'datepicker'
                   }
                 }) do |f| %>
-            <%= f.input :start_date, as: :string, label: "Pick dates", input_html: { data: { datepicker_target: 'startDateInput'} } %>
-            <%= f.input :end_date, as: :string, label: false, input_html: { data: { datepicker_target: 'endDateInput'} } %>
-            <%= f.label :total_price %>
+            <%= f.input :start_date, as: :string, label: "Pick dates", input_html: { data: { datepicker_target: 'startDateInput', action: "input->calculate-amount#calculateTotal", "calculate-amount-target": "startDate"} } %>
+            <%= f.input :end_date, as: :string, label: false, input_html: { data: { datepicker_target: 'endDateInput', action: "input->calculate-amount#calculateTotal", "calculate-amount-target": "endDate"} } %>
+            <%= f.input :total_price, disabled: true, input_html: { data: {"calculate-amount-target": "input"}} %>
             <%= f.submit %>
           <% end %>
         <% end %>
