@@ -1,4 +1,11 @@
 <div class = "container-background">
+  <div class="d-inline-flex justify-content-end align-items-end w-100 pt-2 pe-3">
+    <%= link_to user_statistics_path do  %>
+      <div class = "button-gold" style="background-image: url('<%= asset_url 'gold-button-new.png' %>')">
+        <span class='m-1 fs-5'>Statistics</span>
+      </div>
+    <% end %>
+  </div>
   <div class="pt-2">
     <div class = "welcome">
       <h1>Welcome <%= current_user.first_name %>!</h1>

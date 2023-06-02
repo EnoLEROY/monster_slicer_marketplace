@@ -10,3 +10,5 @@ pin "@popperjs/core", to: "popper.js", preload: true
 pin "typed.js", to: "https://ga.jspm.io/npm:typed.js@2.0.16/dist/typed.module.js"
 pin "flatpickr", to: "https://ga.jspm.io/npm:flatpickr@4.6.13/dist/esm/index.js"
 pin "flatpickrRangePlugin", to: "https://ga.jspm.io/npm:flatpickr@4.6.13/dist/esm/plugins/rangePlugin.js"
+pin "chart.js", to: "https://ga.jspm.io/npm:chart.js@4.2.0/dist/chart.js"
+pin "@kurkle/color", to: "https://ga.jspm.io/npm:@kurkle/color@0.3.2/dist/color.esm.js"

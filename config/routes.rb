@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
   get "/dashboard", to: "pages#dashboard"
+  get "/user_statistics", to: "pages#user_statistics"
   resources :products, only: [:index, :show, :new, :create] do
     member do
       get :details

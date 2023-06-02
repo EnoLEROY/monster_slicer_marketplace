@@ -1,0 +1,22 @@
+<div class="container-background">
+<div class="pt-2">
+  <div class = "welcome">
+    <div class="d-column-flex mb-4 text-white">
+    <h2 class='p-0 m-0'>Welcome <%= current_user.first_name %></h2>
+    <h3 class='fs-3'>to your statistics board</h3>
+    </div>
+  </div>
+</div>
+
+
+
+<div>
+  <h2>My products</h2>
+  <div class="chart">
+    <canvas data-controller="chart" data-chart-temp-value= '<%= @data %>'>
+      <!-- TODO: Display doughnut chart below -->
+    </canvas>
+  </div>
+</div>
+
+</div>
