@@ -8,7 +8,8 @@
         </div>
         <div class = "card-info">
           <div class = "image-and-details">
-            <div class = "temp-image"  style="background-image: url('<%= cl_image_path @product.product_image.key %>')">
+            <div class = "temp-image">
+              <%= cl_image_tag @product.product_image.key %>
             </div>
             <div class = "title-stats">
               <h2><%= @product.title %></h1>

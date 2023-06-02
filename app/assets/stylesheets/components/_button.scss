@@ -11,6 +11,12 @@
   font-size: 12px;
   transition: 0.3s ease;
 }
+#button-gold-input {
+  width: 50px;
+  height: 22.5px;
+  background: url(app/assets/images/gold-button-new.png) no-repeat;
+  background-size:100% 100%
+}
 
 .button-gold-large:hover {
   opacity: 0.7;
