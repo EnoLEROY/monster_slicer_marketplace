@@ -8,23 +8,8 @@ class ProductsController < ApplicationController
     else
       products_temp = Product.all
     end
-    if params[:search].present? && params[:search][:query].present?
-      products_temp2 = products_temp.select do |product|
-        product if product.category == params[:search][:query]
-      end
-    else
-      products_temp2 = products_temp
-    end
-    if params[:search].present? && params[:search][:opening_date].present? && params[:search][:end_date].present?
-      search_opening_date = DateTime.strptime(params[:search][:opening_date], "%Y-%m-%d")
-      search_end_date = DateTime.strptime(params[:search][:end_date], "%Y-%m-%d")
-      date_range = [search_opening_date.to_i, search_end_date.to_i]
-      @products = products_temp2.select do |product|
-        available?(date_range, product)
-      end
-    else
-      @products = products_temp2
-    end
+    products_temp = filter_product_by_category(products_temp, params)
+    @products = filter_product_by_date(products_temp, params)
   end
 
   def show
@@ -106,5 +91,30 @@ class ProductsController < ApplicationController
       end
     end
     return is_available
+  end
+
+  def filter_product_by_category(products, params)
+    if params[:search].present? && params[:search][:query].present?
+      filtered_products = products.select do |product|
+        product if product.category == params[:search][:query]
+      end
+    else
+      filtered_products = products
+    end
+    return filtered_products
+  end
+
+  def filter_product_by_date(products, params)
+    if params[:search].present? && params[:search][:opening_date].present? && params[:search][:end_date].present?
+      search_opening_date = DateTime.strptime(params[:search][:opening_date], "%Y-%m-%d")
+      search_end_date = DateTime.strptime(params[:search][:end_date], "%Y-%m-%d")
+      date_range = [search_opening_date.to_i, search_end_date.to_i]
+      filtered_products = products.select do |product|
+        available?(date_range, product)
+      end
+    else
+      filtered_products = products
+    end
+    return filtered_products
   end
 end
