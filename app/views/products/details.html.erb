@@ -21,7 +21,7 @@
         <% if @product.rentings.where(status: "pending").count == 0 %>
           <p>There is no reservation requiring action.</p>
         <% end %>
-        <div class="container-rentings">
+        <div class="container-rentings-details">
           <% @product.rentings.where(status: "pending").each do |renting| %>
             <div class="card-renting-details"
                  data-controller="card-disappear"
