@@ -10,6 +10,7 @@
   background-color: rgb(246, 236, 184);
   border: 10px solid #927E6A;
   padding-bottom: 20px ;
+  background-size: cover;
 }
 
 .product-description {
@@ -49,9 +50,16 @@
 .pendings {
   margin-inline: 10px;
 }
-
-.pendings-grid p {
-  font-size: 25px;
+.container-rentings {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.pendings-grid  {
+  p{
+    font-size: 25px;
+  }
 }
 
 .pendings-title h2{
@@ -97,6 +105,11 @@
 
 .stats-infos {
   font-size: 25px;
+  display: flex;
+  justify-content: center;
+}
+.stats-info-labels{
+  margin-right: 40px;
 }
 
 .history {
@@ -142,19 +155,4 @@
   animation-name: disappear;
   animation-duration: 1000ms;
   animation-fill-mode: forwards;
-}
-
-.temp-image {
-  height: 150px;
-  width: 150px;
-  margin-right: 10px;
-  background-color: #927E6A;
-  border-radius: 2px;
-  img {
-    height: 150px;
-    width: 150px;
-    object-fit: scale-down;
-    background-position: center;
-    border: 3px solid gold;
-  }
 }
